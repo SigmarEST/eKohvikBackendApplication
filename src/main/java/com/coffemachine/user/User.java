@@ -4,9 +4,7 @@ import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -42,16 +40,11 @@ public class User implements Serializable{
 	private String email;
 	
 	@Expose
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "user", cascade = CascadeType.ALL,  orphanRemoval = true)
+	@OneToMany(mappedBy = "user", orphanRemoval = true)
 	private Set<Card> cards = new HashSet<Card>();
-	
-	
-	//@Expose
-	//@OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
-	//private Set<Purchase> purchases = new HashSet<>();
 
 	public User(){
-		
+		super();
 	};
 	
 

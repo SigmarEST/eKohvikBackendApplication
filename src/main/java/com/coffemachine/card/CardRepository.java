@@ -2,10 +2,10 @@ package com.coffemachine.card;
 
 import java.util.List;
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface CardRepository extends CrudRepository<Card, Long>{
+public interface CardRepository extends JpaRepository<Card, Long>{
 	
-	public List<Card>findByUser(Long id);
+	public List<Card>findByUserEmail(String email);
 
 }

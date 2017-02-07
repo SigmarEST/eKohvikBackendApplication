@@ -15,8 +15,8 @@ public class CardService {
 		return (List<Card>) cardRepository.findAll();
 	}
 	
-	public List<Card> getAllCardsByUser(Long id){
-		return (List<Card>) cardRepository.findByUser(id);
+	public List<Card> getAllCardsByUserEmail(String email){
+		return (List<Card>) cardRepository.findByUserEmail(email);
 	}
 	
 	public Card getCard(Long id){

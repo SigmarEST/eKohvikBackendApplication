@@ -26,8 +26,8 @@ public class CardController {
 	}
 	
 	@RequestMapping("/cards/{userId}")
-	public List<Card> getAllCardsByUser(@PathVariable Long userId){
-		return cardService.getAllCardsByUser(userId);
+	public List<Card> getAllCardsByUser(@PathVariable String email){
+		return cardService.getAllCardsByUserEmail(email);
 	}
 	
 	@RequestMapping(method = RequestMethod.POST, value ="/cards/add")

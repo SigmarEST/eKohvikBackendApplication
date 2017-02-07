@@ -1,6 +1,7 @@
 package com.coffemachine.user;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,6 +19,10 @@ public class UserService {
 	
 	public User getUser(Long id){
 		return userRepository.findOne(id);
+	}
+	
+	public Optional<User> getByEmail(String email){
+		return userRepository.findByEmail(email);
 	}
 	
 	public void addUser(User user){

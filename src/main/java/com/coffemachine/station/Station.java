@@ -32,7 +32,7 @@ public class Station implements Serializable{
 	private String address;
 
 	public Station() {
-
+		super();
 	}
 
 	public Station(Long stationId, String address) {

@@ -43,7 +43,7 @@ public class Card implements Serializable{
 	private User user;
 	
 	public Card(){
-		
+		super();
 	}
 
 	public Card(String uID, User user) {

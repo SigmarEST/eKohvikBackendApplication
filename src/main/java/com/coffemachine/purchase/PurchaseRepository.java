@@ -1,7 +1,7 @@
 package com.coffemachine.purchase;
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface PurchaseRepository extends CrudRepository<Purchase, Long>{
+public interface PurchaseRepository extends JpaRepository<Purchase, Long>{
 
 }

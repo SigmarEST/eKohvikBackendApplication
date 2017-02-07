@@ -47,7 +47,7 @@ public class Item implements Serializable{
 	//private Purchase purchase;
 
 	public Item(){
-		
+		super();
 	}
 	
 	public Item(String name, double price, boolean available) {

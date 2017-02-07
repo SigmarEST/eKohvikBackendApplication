@@ -1,4 +1,4 @@
-package com.coffemachine.purchase;
+package com.coffemachine.purchaseItem;
 
 import java.io.Serializable;
 
@@ -12,6 +12,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 import com.coffemachine.item.Item;
+import com.coffemachine.purchase.Purchase;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
@@ -47,7 +48,7 @@ public class PurchaseItem implements Serializable {
 	private Integer amount;
 	
 	public PurchaseItem(){
-		
+		super();
 	}
 	
 	public PurchaseItem(Long purchaseItemId, Purchase purchase, Item item, Integer amount) {

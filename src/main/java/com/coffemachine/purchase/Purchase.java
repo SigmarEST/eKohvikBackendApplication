@@ -48,7 +48,7 @@ public class Purchase implements Serializable{
 	private double cost;
 
 	public Purchase(){
-		
+		super();
 	}
 
 	public Purchase(LocalDateTime date, User user, double cost) {
