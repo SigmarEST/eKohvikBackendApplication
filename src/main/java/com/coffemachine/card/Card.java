@@ -3,7 +3,6 @@ package com.coffemachine.card;
 import java.io.Serializable;
 
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -15,6 +14,7 @@ import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import com.coffemachine.user.User;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.google.gson.annotations.Expose;
 
 @Entity
@@ -38,7 +38,8 @@ public class Card implements Serializable{
 	private String uid;
 	
 	@Expose
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne
+	@JsonBackReference
 	@JoinColumn(name="userId")
 	private User user;
 	

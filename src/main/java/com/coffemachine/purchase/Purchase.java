@@ -40,10 +40,6 @@ public class Purchase implements Serializable{
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	@JoinColumn(name="userId")
 	private User user;
-	
-	//@Expose
-	//@OneToMany(mappedBy = "purchase")
-	//private Set<Item> items = new HashSet<Item>();
 
 	private double cost;
 

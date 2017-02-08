@@ -9,11 +9,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.coffemachine.user.User;
+import com.coffemachine.user.UserService;
+
 @RestController
 public class CardController {
 	
 	@Autowired
 	CardService cardService;
+	@Autowired
+	UserService userService;
 	
 	@RequestMapping("/cards")
 	public List<Card> getAllCards(){
@@ -30,10 +35,14 @@ public class CardController {
 		return cardService.getAllCardsByUserEmail(email);
 	}
 	
-	@RequestMapping(method = RequestMethod.POST, value ="/cards/add")
-	public void addCard(@RequestBody Card card){
-		System.out.println(card.getUid());
+	@RequestMapping(method = RequestMethod.POST, value ="/cards/add/{email:.+}")
+	public void addCard(@PathVariable String email, @RequestBody Card card){
+		User user  = userService.getByEmail(email);
+		card.setUser(user);
 		cardService.addCard(card);
+		//cardService.updateCard(card);
+		user.getCards().add(card);
+		userService.updateUser(user);
 	}
 	
 	@RequestMapping(method = RequestMethod.PUT, value = "/cards/update")

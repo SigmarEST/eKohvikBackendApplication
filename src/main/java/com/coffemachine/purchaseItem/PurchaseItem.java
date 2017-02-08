@@ -12,7 +12,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 import com.coffemachine.item.Item;
-import com.coffemachine.purchase.Purchase;
+import com.coffemachine.purchaseitemline.PurchaseItemLine;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
@@ -35,8 +35,8 @@ public class PurchaseItem implements Serializable {
 	private Long purchaseItemId;
 	
 	@ManyToOne
-    @JoinColumn(name="purchaseId")
-	private Purchase purchase;
+    @JoinColumn(name="purchaseItemLineId")
+	private PurchaseItemLine purchaseItemLine;
 	
 	@ManyToOne
     @JoinColumn(name="itemId")
@@ -51,10 +51,10 @@ public class PurchaseItem implements Serializable {
 		super();
 	}
 	
-	public PurchaseItem(Long purchaseItemId, Purchase purchase, Item item, Integer amount) {
+	public PurchaseItem(Long purchaseItemId, PurchaseItemLine purchaseItemLine, Item item, Integer amount) {
 		super();
 		this.purchaseItemId = purchaseItemId;
-		this.purchase = purchase;
+		this.purchaseItemLine = purchaseItemLine;
 		this.item = item;
 		this.amount = amount;
 	}
@@ -67,12 +67,12 @@ public class PurchaseItem implements Serializable {
 		this.purchaseItemId = purchaseItemId;
 	}
 
-	public Purchase getPurchase() {
-		return purchase;
+	public PurchaseItemLine getPurchaseItemLine() {
+		return purchaseItemLine;
 	}
 
-	public void setPurchase(Purchase purchase) {
-		this.purchase = purchase;
+	public void setPurchase(PurchaseItemLine purchaseItemLine) {
+		this.purchaseItemLine = purchaseItemLine;
 	}
 
 	public Item getItem() {
