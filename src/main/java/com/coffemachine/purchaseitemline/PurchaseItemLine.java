@@ -1,5 +1,6 @@
 package com.coffemachine.purchaseitemline;
 
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -26,8 +27,13 @@ import com.google.gson.annotations.Expose;
 @Table(name="purchaseItemLine")
 @JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class, property="idPurchaseItem")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-public class PurchaseItemLine {
+public class PurchaseItemLine implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6427404512470822698L;
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Expose
@@ -41,6 +47,41 @@ public class PurchaseItemLine {
 	@JsonManagedReference
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "purchaseItemLine", cascade = CascadeType.ALL, orphanRemoval = true)
 	private Set<PurchaseItem> purchaseItems = new HashSet<PurchaseItem>();
+    
+	public PurchaseItemLine(){
+		super();
+	}
 	
+	public PurchaseItemLine(Long purchaseItemId, Purchase purchase, Set<PurchaseItem> purchaseItems) {
+		super();
+		this.purchaseItemId = purchaseItemId;
+		this.purchase = purchase;
+		this.purchaseItems = purchaseItems;
+	}
 
+	public Long getPurchaseItemId() {
+		return purchaseItemId;
+	}
+
+	public void setPurchaseItemId(Long purchaseItemId) {
+		this.purchaseItemId = purchaseItemId;
+	}
+
+	public Purchase getPurchase() {
+		return purchase;
+	}
+
+	public void setPurchase(Purchase purchase) {
+		this.purchase = purchase;
+	}
+
+	public Set<PurchaseItem> getPurchaseItems() {
+		return purchaseItems;
+	}
+
+	public void setPurchaseItems(Set<PurchaseItem> purchaseItems) {
+		this.purchaseItems = purchaseItems;
+	}
+	
+    
 }
