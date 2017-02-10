@@ -15,6 +15,7 @@ import com.coffemachine.service.CardService;
 import com.coffemachine.service.UserService;
 
 @RestController
+@RequestMapping("/coffemachine")
 public class CardController {
 	
 	@Autowired

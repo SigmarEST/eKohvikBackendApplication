@@ -13,6 +13,7 @@ import com.coffemachine.module.Station;
 import com.coffemachine.service.StationService;
 
 @RestController
+@RequestMapping("/coffemachine")
 public class StationController {
 	
 	@Autowired

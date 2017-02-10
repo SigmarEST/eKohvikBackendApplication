@@ -13,6 +13,7 @@ import com.coffemachine.module.Purchase;
 import com.coffemachine.service.PurchaseService;
 
 @RestController
+@RequestMapping("/coffemachine")
 public class PurchaseController {
 	
 	@Autowired

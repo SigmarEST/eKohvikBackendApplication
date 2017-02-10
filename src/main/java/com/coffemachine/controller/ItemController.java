@@ -13,6 +13,7 @@ import com.coffemachine.module.Item;
 import com.coffemachine.service.ItemService;
 
 @RestController
+@RequestMapping("/coffemachine")
 public class ItemController {
 	
 	@Autowired

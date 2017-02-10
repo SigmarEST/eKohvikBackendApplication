@@ -12,6 +12,7 @@ import com.coffemachine.module.User;
 import com.coffemachine.service.UserService;
 
 @RestController
+@RequestMapping("/coffemachine")
 public class UserController {
 	
 	@Autowired
