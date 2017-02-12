@@ -1,4 +1,4 @@
-package com.coffemachine.service;
+package com.coffemachine.service.impl;
 
 import java.util.List;
 
@@ -7,9 +7,10 @@ import org.springframework.stereotype.Service;
 
 import com.coffemachine.module.Card;
 import com.coffemachine.repository.CardRepository;
+import com.coffemachine.services.CardService;
 
 @Service
-public class CardService {
+public class CardServiceImpl implements CardService {
 	
 	@Autowired
 	CardRepository cardRepository;

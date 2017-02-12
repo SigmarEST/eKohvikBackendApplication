@@ -1,4 +1,4 @@
-package com.coffemachine.service;
+package com.coffemachine.service.impl;
 
 import java.util.List;
 
@@ -7,9 +7,10 @@ import org.springframework.stereotype.Service;
 
 import com.coffemachine.module.Admin;
 import com.coffemachine.repository.AdminRepository;
+import com.coffemachine.services.AdminService;
 
 @Service
-public class AdminService {
+public class AdminServiceImpl implements AdminService {
 	
 	@Autowired 
 	AdminRepository adminRepository;

@@ -6,4 +6,6 @@ import com.coffemachine.module.Item;
 
 public interface ItemRepository extends JpaRepository<Item, Long>{
 
+	Item findByName(String name);
+
 }

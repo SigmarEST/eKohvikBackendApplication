@@ -15,8 +15,8 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 @Entity
 @Table(name = "item")
-@JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class, property="itemId")
-@JsonIgnoreProperties({"hibernatelInitializer", "handler"})
+//@JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class, property="itemId")
+//@JsonIgnoreProperties({"hibernatelInitializer", "handler"})
 public class Item implements Serializable{
 	
 	/**

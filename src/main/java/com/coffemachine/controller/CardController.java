@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.coffemachine.module.Card;
 import com.coffemachine.module.User;
-import com.coffemachine.service.CardService;
-import com.coffemachine.service.UserService;
+import com.coffemachine.services.CardService;
+import com.coffemachine.services.UserService;
 
 @RestController
 @RequestMapping("/coffemachine")

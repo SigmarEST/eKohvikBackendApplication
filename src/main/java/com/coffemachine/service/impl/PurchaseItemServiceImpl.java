@@ -1,4 +1,4 @@
-package com.coffemachine.service;
+package com.coffemachine.service.impl;
 
 import java.util.List;
 
@@ -7,10 +7,11 @@ import org.springframework.stereotype.Service;
 
 import com.coffemachine.module.PurchaseItem;
 import com.coffemachine.repository.PurchaseItemRepository;
+import com.coffemachine.services.PurchaseItemService;
 
 
 @Service
-public class PurchaseItemService {
+public class PurchaseItemServiceImpl implements PurchaseItemService {
 	
 	@Autowired
 	PurchaseItemRepository purchaseItemRepository;

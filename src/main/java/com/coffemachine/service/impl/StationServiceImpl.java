@@ -1,4 +1,4 @@
-package com.coffemachine.service;
+package com.coffemachine.service.impl;
 
 import java.util.List;
 
@@ -7,9 +7,10 @@ import org.springframework.stereotype.Service;
 
 import com.coffemachine.module.Station;
 import com.coffemachine.repository.StationRepository;
+import com.coffemachine.services.StationService;
 
 @Service
-public class StationService {
+public class StationServiceImpl implements StationService {
 	
 	@Autowired
 	StationRepository stationRepository;

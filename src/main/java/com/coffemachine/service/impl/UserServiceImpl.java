@@ -1,4 +1,4 @@
-package com.coffemachine.service;
+package com.coffemachine.service.impl;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -6,9 +6,10 @@ import org.springframework.stereotype.Service;
 
 import com.coffemachine.module.User;
 import com.coffemachine.repository.UserRepository;
+import com.coffemachine.services.UserService;
 
 @Service
-public class UserService {
+public class UserServiceImpl implements UserService{
 	
 	@Autowired
 	UserRepository userRepository;

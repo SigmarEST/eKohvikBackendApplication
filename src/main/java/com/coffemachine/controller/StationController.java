@@ -10,7 +10,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.coffemachine.module.Station;
-import com.coffemachine.service.StationService;
+import com.coffemachine.services.StationService;
+
 
 @RestController
 @RequestMapping("/coffemachine")
