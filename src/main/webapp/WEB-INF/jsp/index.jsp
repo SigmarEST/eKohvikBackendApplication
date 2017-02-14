@@ -29,8 +29,17 @@
      <link href="<c:url value='css/app.css' />" rel="stylesheet"></link>
   </head>
   <body ng-app="myApp" class="ng-cloak">
+  <header>
+			<nav class="navbar navbar-default">
+				<div class = "container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="#">Coffe Machine</a>
+				</div>
+				<p class="navbar-text navbar-right" th:text="'Signed in as ' + ${username}" style="margin-right : 10px"> Signed as Anonimous</p>
+				</div>
+			</nav>
+		</header>
       <div class="generic-container" ng-controller="ItemController as ctrl">
-          <div class="panel panel-default">
               <div class="panel-heading"><span class="lead">Item Registration Form </span></div>
               <div class="formcontainer">
                   <form ng-submit="ctrl.submit()" name="myForm" class="form-horizontal">
@@ -79,7 +88,6 @@
                       </div>
                   </form>
               </div>
-          </div>
           <div class="panel panel-default">
                 <!-- Default panel contents -->
               <div class="panel-heading"><span class="lead">List of Items </span></div>
@@ -108,7 +116,12 @@
                   </table>
               </div>
           </div>
-      </div>
+          </div>
+      <footer class="footer" style="position : absolute; bottom:0; background-color: #f5f5f5">
+			<div class = "container">
+				<h2>This is footer</h2>
+			</div>
+		</footer>
       
       <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>
       <script src="<c:url value='js/app.js' />"></script>
