@@ -1,15 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<html>
+<html ng-app="myApp">
 <head>
 <title>Coffee Machine</title>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 <link href="<c:url value='css/app.css' />" rel="stylesheet"></link>
-
+<base href="/" />
 </head>
-<body ng-app="myApp">
+<body>
 	<nav class="navbar navbar-inverse">
 		<div class="container-fluid">
 			<div class="navbar-header">
@@ -22,10 +22,11 @@
 			</div>
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav">
-					<li class="active"><a href="#">Home</a></li>
-					<li><a href="#">About</a></li>
-					<li><a href="#">Projects</a></li>
-					<li><a href="#">Contact</a></li>
+					<li class="active"><a href="home">Home</a></li>
+					<li><a href="items">Items</a></li>
+					<li><a href="users">Users</a></li>
+					<li><a href="stations">Stations</a></li>
+					<li><a href="purchases">Purchases</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="#"><span class="glyphicon glyphicon-log-in"></span>
@@ -34,13 +35,14 @@
 			</div>
 		</div>
 	</nav>
-	<div class="container-fluid text-center">
-		
-	</div>
+	
+	<ng-view></ng-view>
+
 	<script src="<c:url value='js/angular.js' />"></script>
 	<script src="<c:url value='js/angular-route.js' />"></script>
 	<script src="<c:url value='js/app.js' />"></script>
 	<script src="<c:url value='js/service/item_service.js' />"></script>
 	<script src="<c:url value='js/controller/item_controller.js' />"></script>
+	
 </body>
 </html>

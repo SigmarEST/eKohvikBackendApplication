@@ -57,7 +57,6 @@ App.controller('ItemController', ['$scope', 'ItemService', function($scope, Item
               if(self.item.itemId==null){
                   console.log('Saving New Item', self.item);    
                   self.createItem(self.item);
-                  self.reset();
               }else{
                   self.updateItem(self.item, self.item.itemId);
                   console.log('Item updated with id ', self.item.itemId);

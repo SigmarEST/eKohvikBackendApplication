@@ -14,7 +14,7 @@ import com.coffemachine.services.StationService;
 
 
 @RestController
-@RequestMapping("/coffemachine")
+//@RequestMapping("/coffemachine")
 public class StationController {
 	
 	@Autowired
