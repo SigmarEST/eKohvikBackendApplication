@@ -37,4 +37,8 @@ public class StationServiceImpl implements StationService {
 		stationRepository.save(station);
 	}
 
+	public boolean isStationExist(Station station) {
+		return (stationRepository.findByAddress(station.getAddress()))!=null;
+	}
+
 }

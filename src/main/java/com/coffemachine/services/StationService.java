@@ -18,4 +18,7 @@ public interface StationService {
 	
 	public void updateStation(Station station);
 
+
+	public boolean isStationExist(Station station);
+
 }
