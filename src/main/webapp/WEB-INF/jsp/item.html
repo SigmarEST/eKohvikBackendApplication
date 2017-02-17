@@ -1,0 +1,84 @@
+<div ng-controller="ItemController as ctrl">
+			<div>
+				<h1>Item Registration Form</h1>
+				<br>
+			</div>
+			<div class="formcontainer">
+				<form ng-submit="ctrl.submit()" name="myForm"
+					class="form-horizontal">
+					<input type="hidden" ng-model="ctrl.item.itemId" />
+
+					<div class="row">
+						<div class="form-group col-md-12">
+							<label class="col-md-2 control-lable" for="file">Name</label>
+							<div class="col-md-7">
+								<input type="text" ng-model="ctrl.item.name" name="iname"
+									placeholder="Enter item name" />
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="form-group col-md-12">
+							<label class="col-md-2 control-lable" for="file">Price</label>
+							<div class="col-md-7">
+								<input type="number" ng-model="ctrl.item.price" name="price"
+									placeholder="Enter item price" />
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="form-group col-md-12">
+							<label class="col-md-2 control-lable" for="file">Available</label>
+							<div class="col-md-7">
+								<input type="text" ng-model="ctrl.item.available" />
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="form-actions">
+							<input type="submit"
+								value="{{!ctrl.item.itemId ? 'Add' : 'Update'}}"
+								class="btn btn-primary btn-sm" />
+							<button type="button" ng-click="ctrl.reset()"
+								class="btn btn-warning btn-sm">ResetForm</button>
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="grey">
+				<h1>List of Items</h1>
+			</div>
+			<div class="panel panel-default">
+
+				<div class="tablecontainer">
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th>ID.</th>
+								<th>Name</th>
+								<th>Price</th>
+								<th>Available</th>
+								<th width="20%"></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="u in ctrl.items">
+								<td><span ng-bind="u.itemId"></span></td>
+								<td><span ng-bind="u.name"></span></td>
+								<td><span ng-bind="u.price"></span></td>
+								<td><span ng-bind="u.available"></span></td>
+								<td>
+									<button type="button" ng-click="ctrl.edit(u.itemId)"
+										class="btn btn-success custom-width">Edit</button>
+									<button type="button" ng-click="ctrl.remove(u.itemId)"
+										class="btn btn-danger custom-width">Remove</button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>

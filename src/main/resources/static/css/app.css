@@ -40,3 +40,77 @@ body, .form-control{
 .custom-width {
     width: 80px !important;
 }
+
+/* Remove the navbar's default margin-bottom and rounded borders */
+.navbar {
+	height: 15%;
+	margin-bottom: 30px;
+	border-radius: 0;
+}
+
+/* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+.row.content {
+	height: 450px
+}
+
+.navbar-collapse {
+	margin-top: 30px;
+	font-size: 25px;
+	margin-bottom: 30px;
+	padding-bottom: 30px;
+}
+
+.navbar-nav {
+	margin-left: 10%;
+}
+
+.navbar-brand {
+	margin-left: 10% !important;
+	display: inline !important;
+}
+
+.navbar-header {
+	margin-top: 30px;
+	font-size: 25px;
+	margin-bottom: 30px;
+	padding-bottom: 30px;
+}
+
+/* Set gray background color and 100% height */
+.sidenav {
+	padding-top: 20px;
+	background-color: #f1f1f1;
+	height: 100%;
+}
+
+.grey {
+	height: 10%;
+	background: light-grey;
+}
+
+/* Set black background color, white text and some padding */
+.footer {
+	background-color: #555;
+	color: white;
+	padding: 15px;
+}
+
+.formcontainer{
+text-align: left;
+font-size:15px;
+}
+
+.form-actions{
+	margin-left:20%;
+}
+
+/* On small screens, set height to 'auto' for sidenav and grid */
+@media screen and (max-width: 767px) {
+	.sidenav {
+		height: auto;
+		padding: 15px;
+	}
+	.row.content {
+		height: auto;
+	}
+}
