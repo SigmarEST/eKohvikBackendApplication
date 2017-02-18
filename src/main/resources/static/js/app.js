@@ -8,7 +8,7 @@ var App = angular.module('myApp',["ngRoute"])
 			  controller: "ItemController" 
 		     })
 		    .when("/users", {
-			  templateUrl:"users.html",
+			  templateUrl:"user.html",
 			  controller: "UserController" 
 		    })
 		    .when("/stations", {

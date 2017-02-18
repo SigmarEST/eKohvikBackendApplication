@@ -43,6 +43,11 @@
 	<script src="<c:url value='js/app.js' />"></script>
 	<script src="<c:url value='js/service/item_service.js' />"></script>
 	<script src="<c:url value='js/controller/item_controller.js' />"></script>
+	<script src="<c:url value='js/service/station_service.js' />"></script>
+	<script src="<c:url value='js/controller/station_controller.js' />"></script>
+	<script src="<c:url value='js/service/user_service.js' />"></script>
+	<script src="<c:url value='js/controller/user_controller.js' />"></script>
+	
 	
 </body>
 </html>

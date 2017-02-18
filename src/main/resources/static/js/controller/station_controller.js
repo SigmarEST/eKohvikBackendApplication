@@ -54,7 +54,7 @@ App.controller('StationController', ['$scope', 'StationService', function($scope
           self.fetchAllStations();
 
           self.submit = function() {
-              if(self.item.stationId==null){
+              if(self.station.stationId==null){
                   console.log('Saving New Station', self.station);    
                   self.createStation(self.station);
               }else{
