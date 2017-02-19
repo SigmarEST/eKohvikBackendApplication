@@ -1,7 +1,7 @@
 <div class="container-fluid text-center">
 	<div ng-controller="ItemController as ctrl">
 		<div>
-			<h1>Item Registration Form</h1>
+			<h3>Item Registration Form</h3>
 			<br>
 		</div>
 		<div class="formcontainer">
@@ -32,7 +32,10 @@
 					<div class="form-group col-md-12">
 						<label class="col-md-2 control-lable" for="file">Available</label>
 						<div class="col-md-7">
-							<input type="text" ng-model="ctrl.item.available" />
+							<select name="singleSelect" ng-init="ctrl.item.available = true" ng-model="ctrl.item.available">
+								<option value="true">Available</option>
+								<option value="false">Not available</option>
+							</select><br>
 						</div>
 					</div>
 				</div>
@@ -49,7 +52,7 @@
 			</form>
 		</div>
 		<div class="grey">
-			<h1>List of Items</h1>
+			<h3>Items</h3>
 		</div>
 		<div class="panel panel-default">
 

@@ -8,6 +8,7 @@ import com.coffemachine.module.Card;
 
 public interface CardRepository extends JpaRepository<Card, Long>{
 	
-	public List<Card>findByUserEmail(String email);
+	List<Card>findByUserEmail(String email);
+	Card findByUid(String uid);
 
 }

@@ -22,9 +22,10 @@
 			</div>
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav">
-					<li class="active"><a href="home">Home</a></li>
+					<li><a href="home">Home</a></li>
 					<li><a href="items">Items</a></li>
 					<li><a href="users">Users</a></li>
+					<li><a href="cards">Cards</a></li>
 					<li><a href="stations">Stations</a></li>
 					<li><a href="purchases">Purchases</a></li>
 				</ul>
@@ -47,7 +48,8 @@
 	<script src="<c:url value='js/controller/station_controller.js' />"></script>
 	<script src="<c:url value='js/service/user_service.js' />"></script>
 	<script src="<c:url value='js/controller/user_controller.js' />"></script>
-	
+	<script src="<c:url value='js/service/card_service.js' />"></script>
+	<script src="<c:url value='js/controller/card_controller.js' />"></script>
 	
 </body>
 </html>

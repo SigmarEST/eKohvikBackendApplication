@@ -39,4 +39,10 @@ public class CardServiceImpl implements CardService {
 		cardRepository.delete(id);
 	}
 
+	@Override
+	public boolean isCardExist(Card card) {
+		return (cardRepository.findByUid(card.getUid()))!=null;
+		
+	}
+
 }

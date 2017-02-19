@@ -43,39 +43,16 @@ body, .form-control{
 
 /* Remove the navbar's default margin-bottom and rounded borders */
 .navbar {
-	height: 15%;
-	margin-bottom: 30px;
+	height: 20%;
+	margin-bottom: 10px;
 	border-radius: 0;
+	font-size:20px;
 }
 
 /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
 .row.content {
-	height: 450px
+	height: 100%
 }
-
-.navbar-collapse {
-	margin-top: 30px;
-	font-size: 25px;
-	margin-bottom: 30px;
-	padding-bottom: 30px;
-}
-
-.navbar-nav {
-	margin-left: 10%;
-}
-
-.navbar-brand {
-	margin-left: 10% !important;
-	display: inline !important;
-}
-
-.navbar-header {
-	margin-top: 30px;
-	font-size: 25px;
-	margin-bottom: 30px;
-	padding-bottom: 30px;
-}
-
 /* Set gray background color and 100% height */
 .sidenav {
 	padding-top: 20px;

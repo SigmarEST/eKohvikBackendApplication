@@ -17,5 +17,7 @@ public interface CardService {
 	public void updateCard(Card card);
 
 	public void deleteCard(Long id);
+	
+	public boolean isCardExist(Card card);
 
 }
