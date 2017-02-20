@@ -16,6 +16,19 @@ App.factory('UserService', ['$http', '$q', function($http, $q){
 									}
 							);
 			},
+			
+			fetchUser: function(userId){
+				return $http.get('http://localhost:8080/users/'+userId)
+				.then(
+						function(response){
+							return response.data;
+						}, 
+						function(errResponse){
+							console.error('Error while fetching users');
+							return $q.reject(errResponse);
+						}
+				);
+			},
 		    
 		    createUser: function(user){
 					return $http.post('http://localhost:8080/users/add/', user)

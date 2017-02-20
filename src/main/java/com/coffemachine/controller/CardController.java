@@ -79,10 +79,10 @@ public class CardController {
 			System.out.println("card with uid " + card.getUid() + " already exist");
 			return new ResponseEntity<Void>(HttpStatus.CONFLICT);
 		} else {
-			System.out.println(card.getUser());
-			User user = userService.getUser(card.getUser().getUserId());
-			card.setUser(user);
-
+			System.out.println(card.getUser().getUserId());
+			//User user = userService.getUser(card.getUser().getUserId());
+			//card.setUser(user);
+			User user = card.getUser();
 			cardService.addCard(card);
 
 			user.getCards().add(card);

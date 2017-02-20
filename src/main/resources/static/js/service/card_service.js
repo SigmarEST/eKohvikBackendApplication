@@ -18,15 +18,6 @@ App.factory('CardService', ['$http', '$q', 'UserService',function($http, $q, Use
 			},
 		    
 		    createCard: function(card){
-		        UserService.fetchAllUsers()
-		    	   .then( function(response){
-		    	    	for(var i = 0; i<response.data.length; i++){
-		    	    		if(card.user.userId == response.data[i].userId){
-		    	    			card.user = response.data[i];
-		    	    			
-		    	    		}
-		    	    	};
-		    	    	
 			    	    return $http.post('http://localhost:8080/cards/add/', card)
 						.then(
 								function(response){
@@ -36,9 +27,7 @@ App.factory('CardService', ['$http', '$q', 'UserService',function($http, $q, Use
 									console.error('Error while creating card');
 									return $q.reject(errResponse);
 								}
-						);    	   
 		    	   
-		    	   }
 		    	  );
 					
 		    },
