@@ -12,7 +12,7 @@
 					<div class="form-group col-md-12">
 						<label class="col-md-2 control-lable" for="file">UID</label>
 						<div class="col-md-7">
-							<input type="text" ng-model="ctrl.card.uid" name="iname"
+							<input type="text" ng-model="ctrl.card.uid" name="iuid"
 								placeholder="Enter card uid" />
 						</div>
 					</div>
@@ -20,10 +20,10 @@
 
 				<div class="row">
 					<div class="form-group col-md-12">
-						<label class="col-md-2 control-lable" for="file">User</label>
+						<label class="col-md-2 control-lable" for="file">User email</label>
 						<div class="col-md-7">
-							<input type="number" ng-model="ctrl.card.user.userId" name="userId"
-								placeholder="Enter user id" />
+							<input type="email" ng-model="ctrl.card.userEmail" name="email"
+								placeholder="Enter user email" />
 						</div>
 					</div>
 				</div>
@@ -50,7 +50,7 @@
 						<tr>
 							<th>ID.</th>
 							<th>UID</th>
-							<th>User</th>
+							<th>User email</th>
 							<th width="20%"></th>
 						</tr>
 					</thead>
@@ -58,7 +58,7 @@
 						<tr ng-repeat="u in ctrl.cards">
 							<td><span ng-bind="u.cardId"></span></td>
 							<td><span ng-bind="u.uid"></span></td>
-							<td><span ng-bind="u.user"></span></td>
+							<td><span ng-bind="u.userEmail"></span></td>
 							<td>
 								<button type="button" ng-click="ctrl.edit(u.cardId)"
 									class="btn btn-success custom-width">Edit</button>

@@ -1,7 +1,6 @@
 package com.coffemachine.controller;
 
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -13,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import com.coffemachine.dto.CardBO;
 import com.coffemachine.module.Card;
 import com.coffemachine.module.User;
 import com.coffemachine.services.CardService;
@@ -33,12 +33,14 @@ public class CardController {
 	 */
 
 	@RequestMapping("/cards")
-	public ResponseEntity<List<Card>> getAllCards() {
-		List<Card> cards = cardService.getAllCards();
+	public ResponseEntity<List<CardBO>> getAllCards() {
+		List<CardBO> cards = cardService.getAllCards();
+		System.out.println(cards);
+		
 		if (cards.isEmpty()) {
-			return new ResponseEntity<List<Card>>(HttpStatus.NO_CONTENT);
+			return new ResponseEntity<List<CardBO>>(HttpStatus.NO_CONTENT);
 		}
-		return new ResponseEntity<List<Card>>(cards, HttpStatus.OK);
+		return new ResponseEntity<List<CardBO>>(cards, HttpStatus.OK);
 	}
 
 	/*
@@ -79,10 +81,11 @@ public class CardController {
 			System.out.println("card with uid " + card.getUid() + " already exist");
 			return new ResponseEntity<Void>(HttpStatus.CONFLICT);
 		} else {
-			System.out.println(card.getUser().getUserId());
+			System.out.println(card.getUser().getEmail());
 			//User user = userService.getUser(card.getUser().getUserId());
 			//card.setUser(user);
 			User user = card.getUser();
+			card.setUserEmail(user.getEmail());
 			cardService.addCard(card);
 
 			user.getCards().add(card);

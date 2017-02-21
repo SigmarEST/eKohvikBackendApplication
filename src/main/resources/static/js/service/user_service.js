@@ -29,6 +29,19 @@ App.factory('UserService', ['$http', '$q', function($http, $q){
 						}
 				);
 			},
+			
+			fetchUserByEmail: function(email){
+				return $http.get('http://localhost:8080/users/email/'+email)
+				.then(
+						function(response){
+							return response.data;
+						}, 
+						function(errResponse){
+							console.error('Error while fetching user with '+ email);
+							return $q.reject(errResponse);
+						}
+				);
+			},
 		    
 		    createUser: function(user){
 					return $http.post('http://localhost:8080/users/add/', user)

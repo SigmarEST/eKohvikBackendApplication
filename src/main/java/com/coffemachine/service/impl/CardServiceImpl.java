@@ -1,10 +1,12 @@
 package com.coffemachine.service.impl;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.coffemachine.dto.CardBO;
 import com.coffemachine.module.Card;
 import com.coffemachine.repository.CardRepository;
 import com.coffemachine.services.CardService;
@@ -15,8 +17,8 @@ public class CardServiceImpl implements CardService {
 	@Autowired
 	CardRepository cardRepository;
 	
-	public List<Card> getAllCards(){
-		return (List<Card>) cardRepository.findAll();
+	public List<CardBO> getAllCards(){
+		return (List<CardBO>) cardRepository.findAll().stream().map(card -> new CardBO(card.getCardId(), card.getUid(), card.getUser().getEmail())).collect(Collectors.toList());
 	}
 	
 	public List<Card> getAllCardsByUserEmail(String email){

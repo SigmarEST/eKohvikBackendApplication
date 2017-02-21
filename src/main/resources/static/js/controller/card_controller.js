@@ -22,6 +22,7 @@ App
 										.then(
 												function(d) {
 													self.cards = d;
+													console.log(d);
 												},
 												function(errResponse) {
 													console
@@ -32,7 +33,7 @@ App
 							self.createCard = function(card) {
 
 								UserService
-										.fetchUser(card.user.userId)
+										.fetchUserByEmail(card.user.email)
 										.then(
 												function(u) {
 													card.user = u;

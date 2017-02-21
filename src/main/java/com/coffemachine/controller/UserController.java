@@ -61,6 +61,18 @@ public class UserController {
 		return userService.getByEmail(email);
 	}*/
 	
+	@RequestMapping("/users/email/{email:.+}")
+	public ResponseEntity<User> getUserByEmail(@PathVariable String email){
+		 System.out.println("Fetching user with email " + email);
+	        User user = userService.getByEmail(email);
+	        if (user == null) {
+	            System.out.println("user with email " + email + " not found");
+	            return new ResponseEntity<User>(HttpStatus.NOT_FOUND);
+	        }
+	        return new ResponseEntity<User>(user, HttpStatus.OK);
+	}
+	
+	
 	
 	/*@RequestMapping(method = RequestMethod.POST, value = "/users/add")
 	public void addUser(@RequestBody User user){

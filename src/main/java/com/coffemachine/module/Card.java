@@ -35,8 +35,11 @@ public class Card implements Serializable{
 	
 	@ManyToOne
 	@JsonBackReference
+	//@JsonManagedReference
 	@JoinColumn(name="userId")
 	private User user;
+
+	String userEmail;
 	
 	public Card(){
 		super();
@@ -46,6 +49,14 @@ public class Card implements Serializable{
 		super();
 		this.uid = uID;
 		this.user = user;
+	}
+	
+	public String getUserEmail() {
+		return userEmail;
+	}
+
+	public void setUserEmail(String userEmail) {
+		this.userEmail = userEmail;
 	}
 
 	public Long getCardId() {
