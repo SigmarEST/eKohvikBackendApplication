@@ -14,8 +14,6 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "purchase")
-//@JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class, property="purchaseId")
-//@JsonIgnoreProperties({"hibernatelInitializer", "handler"})
 public class Purchase implements Serializable{
 	
 	/**

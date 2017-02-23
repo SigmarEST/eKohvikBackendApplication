@@ -2,7 +2,7 @@ package com.coffemachine.dto;
 
 import java.io.Serializable;
 
-public class CardBO implements Serializable{
+public class CardDTO implements Serializable{
 
 	/**
 	 * 
@@ -13,16 +13,15 @@ public class CardBO implements Serializable{
 	
 	private String uid;
 	
-	
 	private String userEmail;
 	
 
-	public CardBO() {
+	public CardDTO() {
 		super();
 	}
 
 
-	public CardBO(Long cardId, String uid, String userEmail) {
+	public CardDTO(Long cardId, String uid, String userEmail) {
 		super();
 		this.cardId = cardId;
 		this.uid = uid;

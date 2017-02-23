@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import com.coffemachine.dto.CardBO;
+import com.coffemachine.dto.CardDTO;
 import com.coffemachine.module.Card;
 import com.coffemachine.module.User;
 import com.coffemachine.services.CardService;
@@ -33,14 +33,14 @@ public class CardController {
 	 */
 
 	@RequestMapping("/cards")
-	public ResponseEntity<List<CardBO>> getAllCards() {
-		List<CardBO> cards = cardService.getAllCards();
+	public ResponseEntity<List<CardDTO>> getAllCards() {
+		List<CardDTO> cards = cardService.getAllCards();
 		System.out.println(cards);
 		
 		if (cards.isEmpty()) {
-			return new ResponseEntity<List<CardBO>>(HttpStatus.NO_CONTENT);
+			return new ResponseEntity<List<CardDTO>>(HttpStatus.NO_CONTENT);
 		}
-		return new ResponseEntity<List<CardBO>>(cards, HttpStatus.OK);
+		return new ResponseEntity<List<CardDTO>>(cards, HttpStatus.OK);
 	}
 
 	/*
@@ -85,7 +85,6 @@ public class CardController {
 			//User user = userService.getUser(card.getUser().getUserId());
 			//card.setUser(user);
 			User user = card.getUser();
-			card.setUserEmail(user.getEmail());
 			cardService.addCard(card);
 
 			user.getCards().add(card);

@@ -9,14 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-
 @Entity
 @Table(name = "station")
-@JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class, property="stationId")
-@JsonIgnoreProperties({"hibernatelInitializer", "handler"})
 public class Station implements Serializable{
 
 	/**

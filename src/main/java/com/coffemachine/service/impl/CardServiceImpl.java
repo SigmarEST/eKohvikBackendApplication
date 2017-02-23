@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.coffemachine.dto.CardBO;
+import com.coffemachine.dto.CardDTO;
 import com.coffemachine.module.Card;
 import com.coffemachine.repository.CardRepository;
 import com.coffemachine.services.CardService;
@@ -17,8 +17,8 @@ public class CardServiceImpl implements CardService {
 	@Autowired
 	CardRepository cardRepository;
 	
-	public List<CardBO> getAllCards(){
-		return (List<CardBO>) cardRepository.findAll().stream().map(card -> new CardBO(card.getCardId(), card.getUid(), card.getUser().getEmail())).collect(Collectors.toList());
+	public List<CardDTO> getAllCards(){
+		return (List<CardDTO>) cardRepository.findAll().stream().map(card -> new CardDTO(card.getCardId(), card.getUid(), card.getUser().getEmail())).collect(Collectors.toList());
 	}
 	
 	public List<Card> getAllCardsByUserEmail(String email){

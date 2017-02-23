@@ -17,8 +17,6 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
 @Table(name = "card")
-//@JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class, property="cardId")
-//@JsonIgnoreProperties({"hibernatelInitializer", "handler"})
 public class Card implements Serializable{
 	/**
 	 * 
@@ -35,11 +33,9 @@ public class Card implements Serializable{
 	
 	@ManyToOne
 	@JsonBackReference
-	//@JsonManagedReference
 	@JoinColumn(name="userId")
 	private User user;
 
-	String userEmail;
 	
 	public Card(){
 		super();
@@ -51,13 +47,6 @@ public class Card implements Serializable{
 		this.user = user;
 	}
 	
-	public String getUserEmail() {
-		return userEmail;
-	}
-
-	public void setUserEmail(String userEmail) {
-		this.userEmail = userEmail;
-	}
 
 	public Long getCardId() {
 		return cardId;

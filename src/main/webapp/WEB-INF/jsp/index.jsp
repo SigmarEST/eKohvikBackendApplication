@@ -36,12 +36,14 @@
 			</div>
 		</div>
 	</nav>
-	
+	<div>
 	<ng-view></ng-view>
-
+	</div>
+	
 	<script src="<c:url value='js/angular.js' />"></script>
 	<script src="<c:url value='js/angular-route.js' />"></script>
 	<script src="<c:url value='js/app.js' />"></script>
+	<script src="<c:url value='js/controller/home_controller.js' />"></script>
 	<script src="<c:url value='js/service/item_service.js' />"></script>
 	<script src="<c:url value='js/controller/item_controller.js' />"></script>
 	<script src="<c:url value='js/service/station_service.js' />"></script>

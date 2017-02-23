@@ -13,7 +13,7 @@ import com.coffemachine.module.Admin;
 import com.coffemachine.services.AdminService;
 
 @RestController
-@RequestMapping("/coffemachine")
+//@RequestMapping("/coffemachine")
 public class AdminController {
 
 	@Autowired

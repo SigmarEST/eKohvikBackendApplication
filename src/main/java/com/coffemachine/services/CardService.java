@@ -2,12 +2,12 @@ package com.coffemachine.services;
 
 import java.util.List;
 
-import com.coffemachine.dto.CardBO;
+import com.coffemachine.dto.CardDTO;
 import com.coffemachine.module.Card;
 
 public interface CardService {
 	
-	public List<CardBO> getAllCards();
+	public List<CardDTO> getAllCards();
 	
 	public List<Card> getAllCardsByUserEmail(String email);
 	

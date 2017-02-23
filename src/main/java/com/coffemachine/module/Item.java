@@ -9,14 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-
 @Entity
 @Table(name = "item")
-//@JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class, property="itemId")
-//@JsonIgnoreProperties({"hibernatelInitializer", "handler"})
 public class Item implements Serializable{
 	
 	/**
@@ -37,9 +31,6 @@ public class Item implements Serializable{
 	@NotNull
 	private boolean available;
 	
-	//@ManyToOne(fetch = FetchType.LAZY)
-    //@JoinColumn(name = "purchaseId")
-	//private Purchase purchase;
 
 	public Item(){
 		super();

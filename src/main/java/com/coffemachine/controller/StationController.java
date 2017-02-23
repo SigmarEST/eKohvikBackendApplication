@@ -27,12 +27,7 @@ public class StationController {
 	public ResponseEntity<List<Station>> getAllStations() {
 		List<Station> stations = stationService.getAllStations();
 		if (stations.isEmpty()) {
-			return new ResponseEntity<List<Station>>(HttpStatus.NO_CONTENT);// You
-																			// many
-																			// decide
-																			// to
-																			// return
-																			// HttpStatus.NOT_FOUND
+			return new ResponseEntity<List<Station>>(HttpStatus.NO_CONTENT);
 		}
 		return new ResponseEntity<List<Station>>(stations, HttpStatus.OK);
 	}
