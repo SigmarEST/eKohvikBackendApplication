@@ -33,6 +33,11 @@ public class ItemController {
         return new ResponseEntity<List<Item>>(items, HttpStatus.OK);
 	}
 	
+	@RequestMapping("/api/items")
+	public List<Item> getAllItemsForAPI(){
+		return itemService.getAllItems();
+	}
+	
 	@RequestMapping("/items/{id}")
 	public ResponseEntity<Item> getItem(@PathVariable Long id){
 		 System.out.println("Fetching item with id " + id);

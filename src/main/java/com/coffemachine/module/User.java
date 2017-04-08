@@ -35,6 +35,8 @@ public class User implements Serializable{
 	@NotNull
 	private String email;
 	
+	private double balance;
+
 	@JsonManagedReference
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
 	private Set<Card> cards = new HashSet<Card>();
@@ -44,10 +46,11 @@ public class User implements Serializable{
 	};
 	
 
-	public User(String name, String email, Set<Card> cards) {
+	public User(String name, String email, double balance, Set<Card> cards) {
 		super();
 		this.name = name;
 		this.email = email;
+		this.balance = balance;
 		this.cards = cards;
 	}
 
@@ -70,6 +73,15 @@ public class User implements Serializable{
 	}
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	
+	public double getBalance() {
+		return balance;
+	}
+
+
+	public void setBalance(double balance) {
+		this.balance = balance;
 	}
 
 

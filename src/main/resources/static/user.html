@@ -22,8 +22,18 @@
 					<div class="form-group col-md-12">
 						<label class="col-md-2 control-lable" for="file">Email</label>
 						<div class="col-md-7">
-							<input type="email" ng-model="ctrl.user.email" name="price"
+							<input type="email" ng-model="ctrl.user.email" name="email"
 								placeholder="Enter your email" />
+						</div>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="form-group col-md-12">
+						<label class="col-md-2 control-lable" for="file">Balance</label>
+						<div class="col-md-7">
+							<input type="number" step="0.01" ng-model="ctrl.user.balance" name="balance"
+								placeholder="Enter the balance" />
 						</div>
 					</div>
 				</div>
@@ -51,6 +61,7 @@
 							<th>ID.</th>
 							<th>Name</th>
 							<th>Email</th>
+							<th>Balance</th>
 							<th>Cards</th>
 							<th width="20%"></th>
 						</tr>
@@ -60,6 +71,7 @@
 							<td><span ng-bind="u.userId"></span></td>
 							<td><span ng-bind="u.name"></span></td>
 							<td><span ng-bind="u.email"></span></td>
+							<td><span ng-bind="u.balance"></span></td>
 							<td><span ng-bind="u.cards"></span></td>
 							<td>
 								<button type="button" ng-click="ctrl.edit(u.userId)"

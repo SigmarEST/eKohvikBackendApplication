@@ -13,6 +13,8 @@ public interface CardService {
 	
 	public Card getCard(Long id);
 	
+	public Card getCardByUID(String uid);
+	
 	public void addCard(Card card);
 	
 	public void updateCard(Card card);

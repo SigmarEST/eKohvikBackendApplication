@@ -1,17 +1,24 @@
 package com.coffemachine.controller;
 
 import java.util.List;
+
+import org.assertj.core.presentation.Representation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import com.coffemachine.module.Admin;
 import com.coffemachine.module.User;
 import com.coffemachine.services.UserService;
 
@@ -28,6 +35,23 @@ public class UserController {
 	//	return userService.getAllUsers();
 	//}
 	
+	//@RequestMapping("/users/{id}")
+	//public User getUserById(@PathVariable Long id){
+	//	return userService.getUser(id);
+	//}
+	
+	@RequestMapping("api/users/email/{email:.+}")
+	public User getUserByEmailForAPI(@PathVariable String email){
+		System.out.println(email);
+		return userService.getByEmail(email);
+	}
+	
+	@RequestMapping(method = RequestMethod.POST, value = "api/users/add")
+	public void addUser(@RequestBody User user){
+		userService.addUser(user);
+	}
+	
+	
 	@RequestMapping("/users")
 	public ResponseEntity<List<User>> getAllUsers(){
 		List<User> users= userService.getAllUsers();
@@ -36,12 +60,6 @@ public class UserController {
         }
         return new ResponseEntity<List<User>>(users, HttpStatus.OK);
 	}
-	
-	
-	/*@RequestMapping("/users/{id}")
-	public User getUser(@PathVariable Long id){
-		return userService.getUser(id);
-	}*/
 	
 	@RequestMapping("/users/{id}")
 	public ResponseEntity<User> getUser(@PathVariable Long id){
@@ -55,12 +73,6 @@ public class UserController {
 	}
 	
 	
-	/*@RequestMapping("/users/email/{email:.+}")
-	public User getUserByEmail(@PathVariable String email){
-		System.out.println(email);
-		return userService.getByEmail(email);
-	}*/
-	
 	@RequestMapping("/users/email/{email:.+}")
 	public ResponseEntity<User> getUserByEmail(@PathVariable String email){
 		 System.out.println("Fetching user with email " + email);
@@ -72,13 +84,6 @@ public class UserController {
 	        return new ResponseEntity<User>(user, HttpStatus.OK);
 	}
 	
-	
-	
-	/*@RequestMapping(method = RequestMethod.POST, value = "/users/add")
-	public void addUser(@RequestBody User user){
-		userService.addUser(user);
-	}
-	*/
 	
 	@RequestMapping(method = RequestMethod.POST, value="/users/add")
 	public ResponseEntity<Void> addUser(@RequestBody User user,   UriComponentsBuilder ucBuilder){
@@ -137,6 +142,7 @@ public class UserController {
 	        currentUser.setName(user.getName());
 	        currentUser.setEmail(user.getEmail());
 	        currentUser.setCards(user.getCards());
+	        currentUser.setBalance(user.getBalance());
 	         
 	        userService.updateUser(currentUser);
 	        return new ResponseEntity<User>(currentUser, HttpStatus.OK);

@@ -47,4 +47,9 @@ public class CardServiceImpl implements CardService {
 		
 	}
 
+	@Override
+	public Card getCardByUID(String uid) {
+		return cardRepository.findByUid(uid);
+	}
+
 }
