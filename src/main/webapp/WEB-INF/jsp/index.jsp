@@ -22,12 +22,12 @@
 			</div>
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav">
-					<li><a href="home">Home</a></li>
-					<li><a href="items">Items</a></li>
-					<li><a href="users">Users</a></li>
-					<li><a href="cards">Cards</a></li>
-					<li><a href="stations">Stations</a></li>
-					<li><a href="purchases">Purchases</a></li>
+					<li><a href="/home">Home</a></li>
+					<li><a href="/items">Items</a></li>
+					<li><a href="/users">Users</a></li>
+					<li><a href="/cards">Cards</a></li>
+					<li><a href="/stations">Stations</a></li>
+					<li><a href="/purchases">Purchases</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="#"><span class="glyphicon glyphicon-log-in"></span>

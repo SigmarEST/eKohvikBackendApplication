@@ -21,7 +21,7 @@ App
 							};
 
 							self.createCard = function(card) {
-
+									debugger;
 								UserService
 										.fetchUserByEmail(card.user.email)
 										.then(
@@ -46,9 +46,9 @@ App
 
 							self.fetchAllCards();
 
-							self.updateCard = function(card, cardId) {
+							self.updateCard = function(card) {
 								CardService
-										.updateCard(card, cardId)
+										.updateCard(card)
 										.then(
 												self.fetchAllCards,
 												function(errResponse) {
@@ -78,8 +78,7 @@ App
 									self.createCard(self.card);
 								} else {
 									self
-											.updateCard(self.card,
-													self.card.cardId);
+											.updateCard(self.card);
 									console.log('card updated with id ',
 											self.card.cardId);
 								}

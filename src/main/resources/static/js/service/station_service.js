@@ -2,10 +2,12 @@
 
 App.factory('StationService', ['$http', '$q', function($http, $q){
 
+	var backendUrl = 'http://localhost:8080/api/station/';
+
 	return {
 		
 			fetchAllStations: function() {
-					return $http.get('http://localhost:8080/stations/')
+					return $http.get(backendUrl)
 							.then(
 									function(response){
 										return response.data;
@@ -18,7 +20,7 @@ App.factory('StationService', ['$http', '$q', function($http, $q){
 			},
 		    
 		    createStation: function(station){
-					return $http.post('http://localhost:8080/stations/add/', station)
+					return $http.post(backendUrl, station)
 							.then(
 									function(response){
 										return response.data;
@@ -30,8 +32,8 @@ App.factory('StationService', ['$http', '$q', function($http, $q){
 							);
 		    },
 		    
-		    updateStation: function(station, stationId){
-					return $http.put('http://localhost:8080/stations/update/'+stationId, station)
+		    updateStation: function(station){
+					return $http.put(backendUrl, station)
 							.then(
 									function(response){
 										return response.data;
@@ -44,7 +46,7 @@ App.factory('StationService', ['$http', '$q', function($http, $q){
 			},
 		    
 			deleteStation: function(stationId){
-					return $http.delete('http://localhost:8080/stations/delete/'+stationId)
+					return $http.delete(backendUrl+stationId)
 							.then(
 									function(response){
 										return response.data;

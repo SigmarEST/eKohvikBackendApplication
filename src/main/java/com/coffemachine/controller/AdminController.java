@@ -13,33 +13,33 @@ import com.coffemachine.module.Admin;
 import com.coffemachine.services.AdminService;
 
 @RestController
-//@RequestMapping("/coffemachine")
+@RequestMapping("/api/admin")
 public class AdminController {
 
 	@Autowired
 	AdminService adminService;
 	
-	@RequestMapping("/admin")
+	@RequestMapping("/")
 	public List<Admin> getAllAdmins(){
 		return adminService.getAllAdmins();
 	}
 	
-	@RequestMapping("/admin/{id}")
+	@RequestMapping("/{id}")
 	public Admin getAdmin(@PathVariable Long id){
 		return adminService.getAdmin(id);
 	}
 	
-	@RequestMapping(method = RequestMethod.POST, value = "/admin/add")
+	@RequestMapping(method = RequestMethod.POST, value = "/")
 	public void addAdmin(@RequestBody Admin admin){
 		adminService.addAdmin(admin);
 	}
 	
-	@RequestMapping(method = RequestMethod.PUT, value = "admin/update")
+	@RequestMapping(method = RequestMethod.PUT, value = "/")
 	public void updateAdmin(@RequestBody Admin admin){
 		adminService.updateAdmin(admin);
 	}
 	
-	@RequestMapping(method = RequestMethod.DELETE, value = "admin/delete/{id}")
+	@RequestMapping(method = RequestMethod.DELETE, value = "/{id}")
 	public void deleteAdmin(@PathVariable Long id){
 		adminService.deleteAdmin(id);
 	}

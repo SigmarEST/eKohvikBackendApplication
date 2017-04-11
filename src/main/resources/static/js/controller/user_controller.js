@@ -30,8 +30,8 @@ App.controller('UserController', ['$scope', 'UserService', function($scope, User
           
           self.fetchAllUsers();
 
-         self.updateUser = function(user, userId){
-              UserService.updateUser(user, userId)
+         self.updateUser = function(user){
+              UserService.updateUser(user)
 		              .then(
 				              self.fetchAllUsers, 
 				              function(errResponse){
@@ -59,7 +59,7 @@ App.controller('UserController', ['$scope', 'UserService', function($scope, User
                   console.log('Saving New User', self.user);    
                   self.createUser(self.user);
               }else{
-                  self.updateUser(self.user, self.user.userId);
+                  self.updateUser(self.user);
                   console.log('User updated with id ', self.user.userId);
               }
               self.reset();

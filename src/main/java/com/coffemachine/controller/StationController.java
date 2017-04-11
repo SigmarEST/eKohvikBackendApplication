@@ -3,7 +3,6 @@ package com.coffemachine.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,13 +16,13 @@ import com.coffemachine.module.Station;
 import com.coffemachine.services.StationService;
 
 @RestController
-// @RequestMapping("/coffemachine")
+@RequestMapping("/api/station")
 public class StationController {
 
 	@Autowired
 	StationService stationService;
 
-	@RequestMapping("/stations")
+	@RequestMapping("/")
 	public ResponseEntity<List<Station>> getAllStations() {
 		List<Station> stations = stationService.getAllStations();
 		if (stations.isEmpty()) {
@@ -32,7 +31,7 @@ public class StationController {
 		return new ResponseEntity<List<Station>>(stations, HttpStatus.OK);
 	}
 
-	@RequestMapping("/stations/{id}")
+	@RequestMapping("/{id}")
 	public ResponseEntity<Station> getStation(@PathVariable Long id) {
 		System.out.println("Fetching station with id " + id);
 		Station station = stationService.getStation(id);
@@ -43,7 +42,7 @@ public class StationController {
 		return new ResponseEntity<Station>(station, HttpStatus.OK);
 	}
 
-	@RequestMapping(method = RequestMethod.POST, value = "/stations/add")
+	@RequestMapping(method = RequestMethod.POST, value = "/")
 	public ResponseEntity<Void> addStation(@RequestBody Station station, UriComponentsBuilder ucBuilder) {
 		System.out.println("Creating Station " + station.getAddress());
 
@@ -53,21 +52,18 @@ public class StationController {
 		} else {
 
 			stationService.addStation(station);
-
-			HttpHeaders headers = new HttpHeaders();
-			headers.setLocation(ucBuilder.path("/stations/{id}").buildAndExpand(station.getStationId()).toUri());
-			return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
+			return new ResponseEntity<Void>(HttpStatus.CREATED);
 		}
 	}
 
-	@RequestMapping(value = "/stations/update/{id}", method = RequestMethod.PUT)
-	public ResponseEntity<Station> updateStation(@PathVariable("id") Long id, @RequestBody Station station) {
-		System.out.println("Updating Station " + id);
+	@RequestMapping(value = "/", method = RequestMethod.PUT)
+	public ResponseEntity<Station> updateStation(@RequestBody Station station) {
+		System.out.println("Updating Station " + station.getStationId());
 
-		Station currentStation = stationService.getStation(id);
+		Station currentStation = stationService.getStation(station.getStationId());
 
 		if (currentStation == null) {
-			System.out.println("Station with id " + id + " not found");
+			System.out.println("Station with id " + station.getStationId() + " not found");
 			return new ResponseEntity<Station>(HttpStatus.NOT_FOUND);
 		}
 
@@ -77,7 +73,7 @@ public class StationController {
 		return new ResponseEntity<Station>(currentStation, HttpStatus.OK);
 	}
 	
-	@RequestMapping(value = "/stations/delete/{id}", method = RequestMethod.DELETE)
+	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
 	public ResponseEntity<Station> deleteStation(@PathVariable("id") Long id) {
 		System.out.println("Fetching & Deleting station with id " + id);
 

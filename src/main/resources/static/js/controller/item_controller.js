@@ -29,8 +29,8 @@ App.controller('ItemController', ['$scope', 'ItemService', function($scope, Item
           
           self.fetchAllItems();
 
-         self.updateItem = function(item, itemId){
-              ItemService.updateItem(item, itemId)
+         self.updateItem = function(item){
+              ItemService.updateItem(item)
 		              .then(
 				              self.fetchAllItems, 
 				              function(errResponse){
@@ -58,7 +58,7 @@ App.controller('ItemController', ['$scope', 'ItemService', function($scope, Item
                   console.log('Saving New Item', self.item);    
                   self.createItem(self.item);
               }else{
-                  self.updateItem(self.item, self.item.itemId);
+                  self.updateItem(self.item);
                   console.log('Item updated with id ', self.item.itemId);
               }
               self.reset();

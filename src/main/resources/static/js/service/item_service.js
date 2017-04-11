@@ -2,10 +2,12 @@
 
 App.factory('ItemService', ['$http', '$q', function($http, $q){
 
+	var backendUrl = 'http://localhost:8080/api/item/';
+
 	return {
 		
 			fetchAllItems: function() {
-					return $http.get('http://localhost:8080/items/')
+					return $http.get(backendUrl)
 							.then(
 									function(response){
 										return response.data;
@@ -18,7 +20,7 @@ App.factory('ItemService', ['$http', '$q', function($http, $q){
 			},
 		    
 		    createItem: function(item){
-					return $http.post('http://localhost:8080/items/add/', item)
+					return $http.post(backendUrl, item)
 							.then(
 									function(response){
 										return response.data;
@@ -30,8 +32,8 @@ App.factory('ItemService', ['$http', '$q', function($http, $q){
 							);
 		    },
 		    
-		    updateItem: function(item, itemId){
-					return $http.put('http://localhost:8080/items/update/'+itemId, item)
+		    updateItem: function(item){
+					return $http.put(backendUrl, item)
 							.then(
 									function(response){
 										return response.data;
@@ -44,7 +46,7 @@ App.factory('ItemService', ['$http', '$q', function($http, $q){
 			},
 		    
 			deleteItem: function(itemId){
-					return $http.delete('http://localhost:8080/items/delete/'+itemId)
+					return $http.delete(backendUrl+itemId)
 							.then(
 									function(response){
 										return response.data;

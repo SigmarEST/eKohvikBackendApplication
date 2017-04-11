@@ -1,11 +1,13 @@
 'use strict';
 
 App.factory('CardService', ['$http', '$q', 'UserService',function($http, $q, UserService){
-
+	
+	var backendUrl = 'http://localhost:8080/api/card/';
+	
 	return {
 		
 			fetchAllCards: function() {
-					return $http.get('http://localhost:8080/cards/')
+					return $http.get(backendUrl)
 							.then(
 									function(response){
 										return response.data;
@@ -18,7 +20,7 @@ App.factory('CardService', ['$http', '$q', 'UserService',function($http, $q, Use
 			},
 		    
 		    createCard: function(card){
-			    	    return $http.post('http://localhost:8080/cards/add/', card)
+			    	    return $http.post(backendUrl, card)
 						.then(
 								function(response){
 									return response.data;
@@ -32,8 +34,8 @@ App.factory('CardService', ['$http', '$q', 'UserService',function($http, $q, Use
 					
 		    },
 		    
-		    updateCard: function(card, cardId){
-					return $http.put('http://localhost:8080/cards/update/'+ cardId, card)
+		    updateCard: function(card){
+					return $http.put(backendUrl, card)
 							.then(
 									function(response){
 										return response.data;
@@ -46,7 +48,7 @@ App.factory('CardService', ['$http', '$q', 'UserService',function($http, $q, Use
 			},
 		    
 			deleteCard: function(cardId){
-					return $http.delete('http://localhost:8080/cards/delete/'+ cardId)
+					return $http.delete(backendUrl + cardId)
 							.then(
 									function(response){
 										return response.data;

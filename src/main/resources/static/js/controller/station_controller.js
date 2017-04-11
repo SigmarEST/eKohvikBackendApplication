@@ -29,8 +29,8 @@ App.controller('StationController', ['$scope', 'StationService', function($scope
           
           self.fetchAllStations();
 
-         self.updateStation = function(station, stationId){
-              StationService.updateStation(station, stationId)
+         self.updateStation = function(station){
+              StationService.updateStation(station)
 		              .then(
 				              self.fetchAllStations, 
 				              function(errResponse){
@@ -58,7 +58,7 @@ App.controller('StationController', ['$scope', 'StationService', function($scope
                   console.log('Saving New Station', self.station);    
                   self.createStation(self.station);
               }else{
-                  self.updateStation(self.station, self.station.stationId);
+                  self.updateStation(self.station);
                   console.log('Station updated with id ', self.station.stationId);
               }
               self.reset();

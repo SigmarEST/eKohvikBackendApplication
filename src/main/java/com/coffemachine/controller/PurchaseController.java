@@ -13,33 +13,33 @@ import com.coffemachine.module.Purchase;
 import com.coffemachine.services.PurchaseService;
 
 @RestController
-//@RequestMapping("/coffemachine")
+@RequestMapping("/api/purchase")
 public class PurchaseController {
 	
 	@Autowired
 	PurchaseService purchaseService;
 	
-	@RequestMapping("/purchases")
+	@RequestMapping("/")
 	public List<Purchase> getAllPurchases(){
 		return purchaseService.getAllPurchases();
 	}
 	
-	@RequestMapping("/purchases/{id}")
+	@RequestMapping("/{id}")
 	public Long getPurchase(@PathVariable Long id){
 		return purchaseService.getPurchase(id).getUser().getUserId();
 	}
 	
-	@RequestMapping(method = RequestMethod.POST, value = "/purchases/add")
+	@RequestMapping(method = RequestMethod.POST, value = "/")
 	public void addPurchase(@RequestBody Purchase purchase){
 		purchaseService.addPurchase(purchase);
 	}
 	
-	@RequestMapping(method = RequestMethod.DELETE, value = "/purchases/delete/{id}")
+	@RequestMapping(method = RequestMethod.DELETE, value = "/{id}")
 	public void deletePurchase(@PathVariable Long id){
 		purchaseService.deletePurchase(id);
 	}
 	
-	@RequestMapping(method = RequestMethod.POST, value = "/purchases/update")
+	@RequestMapping(method = RequestMethod.PUT, value = "/")
 	public void updatePurchase(@RequestBody Purchase purchase){
 		purchaseService.updatePurchase(purchase);
 	}
