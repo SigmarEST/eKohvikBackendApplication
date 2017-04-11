@@ -2,7 +2,7 @@
 
 App.factory('ItemService', ['$http', '$q', function($http, $q){
 
-	var backendUrl = 'http://localhost:8080/api/item/';
+	var backendUrl = 'http://localhost:8081/api/item/';
 
 	return {
 		

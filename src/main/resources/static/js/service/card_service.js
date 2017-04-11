@@ -2,7 +2,7 @@
 
 App.factory('CardService', ['$http', '$q', 'UserService',function($http, $q, UserService){
 	
-	var backendUrl = 'http://localhost:8080/api/card/';
+	var backendUrl = 'http://localhost:8081/api/card/';
 	
 	return {
 		

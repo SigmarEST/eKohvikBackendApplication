@@ -2,7 +2,7 @@
 
 App.factory('UserService', ['$http', '$q', function($http, $q){
 
-	var backendUrl = 'http://localhost:8080/api/user/';
+	var backendUrl = 'http://localhost:8081/api/user/';
 
 	return {
 		

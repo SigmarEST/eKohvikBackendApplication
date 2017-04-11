@@ -36,12 +36,11 @@ public class CardController {
 	//api/card/email
 	@RequestMapping(method = RequestMethod.POST, value ="/email/{email:.+}") 
 	public void addCardByEmail(@PathVariable String email, @RequestBody Card card){
-		System.out.println("Herehehe "+email);
-		//User user = userService.getByEmail(email); 
-		//card.setUser(user);
-		//cardService.addCard(card); //cardService.updateCard(card);
-		//user.getCards().add(card); 
-		//userService.updateUser(user); 
+		User user = userService.getByEmail(email); 
+		card.setUser(user);
+		cardService.addCard(card); //cardService.updateCard(card);
+		user.getCards().add(card); 
+		userService.updateUser(user); 
 	}
 	
 	@RequestMapping(method = RequestMethod.POST, value ="/") 
@@ -53,7 +52,7 @@ public class CardController {
 	}
 
 	
-	 @RequestMapping("/email/{email}") 
+	 @RequestMapping(method = RequestMethod.GET, value="/email/{email}") 
 	 public List<Card> getAllCardsByUser(@PathVariable String email) { 
 		 return cardService.getAllCardsByUserEmail(email); 
 	 }

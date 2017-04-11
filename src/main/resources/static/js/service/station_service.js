@@ -2,7 +2,7 @@
 
 App.factory('StationService', ['$http', '$q', function($http, $q){
 
-	var backendUrl = 'http://localhost:8080/api/station/';
+	var backendUrl = 'http://localhost:8081/api/station/';
 
 	return {
 		
