@@ -35,4 +35,10 @@ public class PurchaseServiceImpl implements PurchaseService {
 		purchaseRepository.save(purchase);
 	}
 
+	@Override
+	public void deletePurchase(Purchase purchase) {
+		purchaseRepository.delete(purchase);
+		
+	}
+
 }

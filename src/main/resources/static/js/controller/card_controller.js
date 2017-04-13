@@ -4,7 +4,7 @@ App
 		.controller(
 				'CardController', ['$scope', 'CardService', 'UserService', function($scope, CardService, UserService) {
 							var self = this;
-							self.card = {cardId : null, uid : null, user : null};
+							self.card = {cardId : null, uid : null, name:null, user : null};
 							self.cards = [];
 
 							self.fetchAllCards = function() {
@@ -13,6 +13,7 @@ App
 										.then(
 												function(d) {
 													self.cards = d;
+													console.log(d)
 												},
 												function(errResponse) {
 													console
@@ -113,6 +114,7 @@ App
 								self.card = {
 									cardId : null,
 									uid : null,
+									name: null,
 									user : null
 								};
 								$scope.myForm.$setPristine(); // reset Form

@@ -36,6 +36,10 @@ public class User implements Serializable{
 	private String email;
 	
 	private double balance;
+	
+	private boolean active = true;
+	
+	private boolean cardAddingBlocked = false;
 
 	@JsonManagedReference
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
@@ -46,13 +50,35 @@ public class User implements Serializable{
 	};
 	
 
-	public User(String name, String email, double balance, Set<Card> cards) {
+	public User(String name, String email, double balance, boolean active, boolean cardAddingBlocked, Set<Card> cards) {
 		super();
 		this.name = name;
 		this.email = email;
 		this.balance = balance;
+		this.active = active;
+		this.cardAddingBlocked = cardAddingBlocked;
 		this.cards = cards;
 	}
+
+	public boolean isCardAddingBlocked() {
+		return cardAddingBlocked;
+	}
+
+
+	public void setCardAddingBlocked(boolean cardAddingBlocked) {
+		this.cardAddingBlocked = cardAddingBlocked;
+	}
+
+
+	public boolean isActive() {
+		return active;
+	}
+
+
+	public void setActive(boolean active) {
+		this.active = active;
+	}
+
 
 	public Long getUserId() {
 		return userId;

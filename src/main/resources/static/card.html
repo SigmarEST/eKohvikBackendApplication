@@ -1,44 +1,5 @@
 <div class="container-fluid text-center">
 	<div ng-controller="CardController as ctrl">
-		<div>
-			<h3>Card Registration Form</h3>
-			<br>
-		</div>
-		<div class="formcontainer">
-			<form ng-submit="ctrl.submit()" name="myForm" class="form-horizontal">
-				<input type="hidden" ng-model="ctrl.card.cardId" />
-
-				<div class="row">
-					<div class="form-group col-md-12">
-						<label class="col-md-2 control-lable" for="file">UID</label>
-						<div class="col-md-7">
-							<input type="text" ng-model="ctrl.card.uid" name="iuid"
-								placeholder="Enter card uid" />
-						</div>
-					</div>
-				</div>
-
-				<div class="row">
-					<div class="form-group col-md-12">
-						<label class="col-md-2 control-lable" for="file">User email</label>
-						<div class="col-md-7">
-							<input type="email" ng-model="ctrl.card.user.email" name="email"
-								placeholder="Enter user email" />
-						</div>
-					</div>
-				</div>
-
-				<div class="row">
-					<div class="form-actions">
-						<input type="submit"
-							value="{{!ctrl.card.cardId ? 'Add' : 'Update'}}"
-							class="btn btn-primary btn-sm" />
-						<button type="button" ng-click="ctrl.reset()"
-							class="btn btn-warning btn-sm">ResetForm</button>
-					</div>
-				</div>
-			</form>
-		</div>
 		<div class="grey">
 			<h3>Cards</h3>
 		</div>
@@ -49,7 +10,7 @@
 					<thead>
 						<tr>
 							<th>ID.</th>
-							<th>UID</th>
+							<th>Card name</th>
 							<th>User email</th>
 							<th width="20%"></th>
 						</tr>
@@ -57,11 +18,9 @@
 					<tbody>
 						<tr ng-repeat="u in ctrl.cards">
 							<td><span ng-bind="u.cardId"></span></td>
-							<td><span ng-bind="u.uid"></span></td>
+							<td><span ng-bind="u.name"></span></td>
 							<td><span ng-bind="u.userEmail"></span></td>
 							<td>
-								<button type="button" ng-click="ctrl.edit(u.cardId)"
-									class="btn btn-success custom-width">Edit</button>
 								<button type="button" ng-click="ctrl.remove(u.cardId)"
 									class="btn btn-danger custom-width">Remove</button>
 							</td>

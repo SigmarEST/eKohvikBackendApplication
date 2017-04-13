@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.coffemachine.module.User;
+import com.coffemachine.services.PurchaseService;
 import com.coffemachine.services.UserService;
 
 
@@ -19,6 +20,9 @@ public class UserController {
 	
 	@Autowired
 	UserService userService;
+	
+	@Autowired
+	PurchaseService purchaseService;
 	
 	@RequestMapping("/")
 	public List<User> getAllUsers(){
@@ -43,6 +47,11 @@ public class UserController {
 	
 	@RequestMapping(method = RequestMethod.DELETE, value = "/{id}")
 	public void deleteUser(@PathVariable Long id){
+		for(int i=0; i<purchaseService.getAllPurchases().size(); i++){
+			if(purchaseService.getAllPurchases().get(i).getUser().getUserId() == id){
+				purchaseService.deletePurchase(purchaseService.getAllPurchases().get(i));
+			}
+		}
 		userService.deleteUser(id);
 	}
 	  

@@ -2,12 +2,16 @@ package com.coffemachine.module;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -26,24 +30,32 @@ public class Purchase implements Serializable{
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long purchaseId;
 	
-	@NotNull
-	private LocalDateTime dateTime = LocalDateTime.now();
-	
-	@ManyToOne(fetch = FetchType.LAZY, optional = false)
+	@ManyToOne(fetch = FetchType.EAGER, optional = false)
 	@JoinColumn(name="userId")
 	private User user;
-
+	
+	@ManyToMany(fetch = FetchType.EAGER)
+	@JoinColumn(name="itemId")
+	private List<Item> items = new ArrayList<Item>();
+	
 	private double cost;
+	
+	@NotNull
+	private Date dateTime;
+	
 
 	public Purchase(){
 		super();
 	}
 
-	public Purchase(LocalDateTime date, User user, double cost) {
+	
+
+	public Purchase(Date date, User user, double cost, List<Item> items) {
 		super();
 		this.dateTime = date;
 		this.user = user;
 		this.cost = cost;
+		this.items = items;
 	}
 	
 	public Long getPurchaseId() {
@@ -62,11 +74,11 @@ public class Purchase implements Serializable{
 		this.cost = cost;
 	}
 	
-	public LocalDateTime getDateTime() {
+	public Date getDateTime() {
 		return dateTime;
 	}
 
-	public void setDateTime(LocalDateTime dateTime) {
+	public void setDateTime(Date dateTime) {
 		this.dateTime = dateTime;
 	}
 
@@ -77,6 +89,13 @@ public class Purchase implements Serializable{
 	public void setUser(User user) {
 		this.user = user;
 	}
+	
+	
+	public List<Item> getItems() {
+		return items;
+	}
 
-
+	public void setItems(List<Item> items) {
+		this.items = items;
+	}
 }

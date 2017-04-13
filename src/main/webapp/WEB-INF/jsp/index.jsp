@@ -52,6 +52,8 @@
 	<script src="<c:url value='js/controller/user_controller.js' />"></script>
 	<script src="<c:url value='js/service/card_service.js' />"></script>
 	<script src="<c:url value='js/controller/card_controller.js' />"></script>
+	<script src="<c:url value='js/service/purchase_service.js' />"></script>
+	<script src="<c:url value='js/controller/purchase_controller.js' />"></script>
 	
 </body>
 </html>

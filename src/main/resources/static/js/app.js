@@ -19,6 +19,9 @@ var App = angular.module('myApp', [ "ngRoute" ]).config(
 			}).when("/cards", {
 				templateUrl : "card.html",
 				controller : "CardController"
+			}).when("/purchases", {
+				templateUrl : "purchase.html",
+				controller : "PurchaseController"
 			}).otherwise({
 				redirectTo:'/'
 			})

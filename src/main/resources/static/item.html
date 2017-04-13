@@ -12,8 +12,8 @@
 					<div class="form-group col-md-12">
 						<label class="col-md-2 control-lable" for="file">Name</label>
 						<div class="col-md-7">
-							<input type="text" ng-model="ctrl.item.name" name="iname"
-								placeholder="Enter item name" />
+							<input id="name" type="text" ng-model="ctrl.item.name" name="iname"
+								placeholder="Enter item name" required/>
 						</div>
 					</div>
 				</div>
@@ -22,8 +22,8 @@
 					<div class="form-group col-md-12">
 						<label class="col-md-2 control-lable" for="file">Price</label>
 						<div class="col-md-7">
-							<input type="number" step="0.01" ng-model="ctrl.item.price" name="price"
-								placeholder="Enter item price" />
+							<input id="price" type="number" step="0.01" ng-model="ctrl.item.price" name="price"
+								placeholder="Enter item price" required />
 						</div>
 					</div>
 				</div>
@@ -44,7 +44,7 @@
 					<div class="form-actions">
 						<input type="submit"
 							value="{{!ctrl.item.itemId ? 'Add' : 'Update'}}"
-							class="btn btn-primary btn-sm" />
+							class="btn btn-primary btn-sm" ng-disabled="myForm.$invalid"/>
 						<button type="button" ng-click="ctrl.reset()"
 							class="btn btn-warning btn-sm">ResetForm</button>
 					</div>
@@ -76,8 +76,10 @@
 							<td>
 								<button type="button" ng-click="ctrl.edit(u.itemId)"
 									class="btn btn-success custom-width">Edit</button>
-								<button type="button" ng-click="ctrl.remove(u.itemId)"
+								
+							<!--  	<button type="button" ng-click="ctrl.remove(u.itemId)"
 									class="btn btn-danger custom-width">Remove</button>
+									-->
 							</td>
 						</tr>
 					</tbody>

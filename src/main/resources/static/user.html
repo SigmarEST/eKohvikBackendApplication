@@ -13,7 +13,7 @@
 						<label class="col-md-2 control-lable" for="file">Name</label>
 						<div class="col-md-7">
 							<input type="text" ng-model="ctrl.user.name" name="iname"
-								placeholder="Enter your name" />
+								placeholder="Enter your name" required/>
 						</div>
 					</div>
 				</div>
@@ -23,7 +23,7 @@
 						<label class="col-md-2 control-lable" for="file">Email</label>
 						<div class="col-md-7">
 							<input type="email" ng-model="ctrl.user.email" name="email"
-								placeholder="Enter your email" />
+								placeholder="Enter your email" required/>
 						</div>
 					</div>
 				</div>
@@ -33,7 +33,30 @@
 						<label class="col-md-2 control-lable" for="file">Balance</label>
 						<div class="col-md-7">
 							<input type="number" step="0.01" ng-model="ctrl.user.balance" name="balance"
-								placeholder="Enter the balance" />
+								placeholder="Enter the balance" required/>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="form-group col-md-12">
+						<label class="col-md-2 control-lable" for="file">CardAddingBlocked</label>
+						<div class="col-md-7">
+							<select name="singleSelect" ng-init="ctrl.user.cardAddingBlocked = fasle" ng-model="ctrl.user.cardAddingBlocked">
+								<option value="true">Blocked</option>
+								<option value="false">Not blocked</option>
+							</select><br>
+						</div>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="form-group col-md-12">
+						<label class="col-md-2 control-lable" for="file">Active</label>
+						<div class="col-md-7">
+							<select name="singleSelect" ng-init="ctrl.user.active = true" ng-model="ctrl.user.active">
+								<option value="true">Active</option>
+								<option value="false">Not acative</option>
+							</select><br>
 						</div>
 					</div>
 				</div>
@@ -42,7 +65,7 @@
 					<div class="form-actions">
 						<input type="submit"
 							value="{{!ctrl.user.userId ? 'Add' : 'Update'}}"
-							class="btn btn-primary btn-sm" />
+							class="btn btn-primary btn-sm" ng-disabled="myForm.$invalid"/>
 						<button type="button" ng-click="ctrl.reset()"
 							class="btn btn-warning btn-sm">ResetForm</button>
 					</div>
@@ -62,6 +85,8 @@
 							<th>Name</th>
 							<th>Email</th>
 							<th>Balance</th>
+							<th>Active</th>
+							<th>AddCardBlocked</th>
 							<th>Cards</th>
 							<th width="20%"></th>
 						</tr>
@@ -72,7 +97,9 @@
 							<td><span ng-bind="u.name"></span></td>
 							<td><span ng-bind="u.email"></span></td>
 							<td><span ng-bind="u.balance"></span></td>
-							<td><span ng-bind="u.cards"></span></td>
+							<td><span ng-bind="u.active"></span></td>
+							<td><span ng-bind="u.cardAddingBlocked"></span>
+							<td><div ng-repeat="card in u.cards">{{card.name}}</div></td>
 							<td>
 								<button type="button" ng-click="ctrl.edit(u.userId)"
 									class="btn btn-success custom-width">Edit</button>

@@ -1,5 +1,6 @@
 package com.coffemachine.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,20 @@ public class ItemController {
 	@RequestMapping("/")
 	public List<Item> getAllItems(){
 		return itemService.getAllItems();
+	}
+	
+	@RequestMapping("items/")
+	public List<Item> getAllActiveItems(){
+		List<Item> items =  itemService.getAllItems();
+		List<Item> activeItems = new ArrayList<Item>();
+		System.out.println(items.size());
+		for(int i=0; i<items.size(); i++){
+			if(items.get(i).isAvailable()){
+				activeItems.add(items.get(i));
+			}
+		}
+		
+		return activeItems;
 	}
 	
 	@RequestMapping("/{id}")

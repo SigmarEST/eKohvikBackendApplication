@@ -28,28 +28,40 @@ public class CardController {
 	}
 	
 	@RequestMapping("/{uid}")
-	public Card getCardById(@PathVariable String uid) {
+	public Card getCardByUid(@PathVariable String uid) {
 		return cardService.getCardByUID(uid);
 
+	}
+	
+	@RequestMapping("user/{uid}")
+	public User getUserByCardUid(@PathVariable String uid){
+		Card card = cardService.getCardByUID(uid);
+		if(card != null){
+			User user = card.getUser();
+			return user;
+		}
+		return null;
 	}
 	
 	//api/card/email
 	@RequestMapping(method = RequestMethod.POST, value ="/email/{email:.+}") 
 	public void addCardByEmail(@PathVariable String email, @RequestBody Card card){
 		User user = userService.getByEmail(email); 
+		if(user != null){
 		card.setUser(user);
 		cardService.addCard(card); //cardService.updateCard(card);
 		user.getCards().add(card); 
 		userService.updateUser(user); 
+		}
 	}
 	
-	@RequestMapping(method = RequestMethod.POST, value ="/") 
+	/*@RequestMapping(method = RequestMethod.POST, value ="/") 
 	public void addCard(@RequestBody Card card){
 		cardService.addCard(card); //cardService.updateCard(card);
 		User user = card.getUser();
 		user.getCards().add(card); 
 		userService.updateUser(user); 
-	}
+	}*/
 
 	
 	 @RequestMapping(method = RequestMethod.GET, value="/email/{email}") 

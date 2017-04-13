@@ -31,6 +31,10 @@ public class Card implements Serializable{
 	@NotNull
 	private String uid;
 	
+	@NotNull
+	@NotEmpty
+	private String name;
+	
 	@ManyToOne
 	@JsonBackReference
 	@JoinColumn(name="userId")
@@ -41,12 +45,13 @@ public class Card implements Serializable{
 		super();
 	}
 
-	public Card(String uID, User user) {
+	public Card(String uID, String name, User user) {
 		super();
 		this.uid = uID;
+		this.name = name;
 		this.user = user;
+		
 	}
-	
 
 	public Long getCardId() {
 		return cardId;
@@ -70,6 +75,14 @@ public class Card implements Serializable{
 
 	public void setUser(User user) {
 		this.user = user;
+	}
+	
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 

@@ -13,6 +13,9 @@ public class CardDTO implements Serializable{
 	
 	private String uid;
 	
+	private String name;
+
+
 	private String userEmail;
 	
 
@@ -21,10 +24,11 @@ public class CardDTO implements Serializable{
 	}
 
 
-	public CardDTO(Long cardId, String uid, String userEmail) {
+	public CardDTO(Long cardId, String uid, String name, String userEmail) {
 		super();
 		this.cardId = cardId;
 		this.uid = uid;
+		this.name = name;
 		this.userEmail = userEmail;
 	}
 
@@ -46,6 +50,15 @@ public class CardDTO implements Serializable{
 
 	public void setUid(String uid) {
 		this.uid = uid;
+	}
+	
+	public String getName() {
+		return name;
+	}
+
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 
