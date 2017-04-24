@@ -24,15 +24,24 @@ public class Station implements Serializable{
 
 	@NotNull
 	private String address;
+	
+	@NotNull
+	private String stationName;
+	
+	@NotNull
+	private String stationSecret;
+	
 
 	public Station() {
 		super();
 	}
 
-	public Station(Long stationId, String address) {
+	public Station(Long stationId, String address, String stationName, String stationSecret) {
 		super();
 		this.stationId = stationId;
 		this.address = address;
+		this.stationName = stationName;
+		this.stationSecret = stationSecret;
 	}
 
 	public Long getStationId() {
@@ -50,5 +59,23 @@ public class Station implements Serializable{
 	public void setAddress(String address) {
 		this.address = address;
 	}
+
+	public String getStationName() {
+		return stationName;
+	}
+
+	public void setStationName(String stationName) {
+		this.stationName = stationName;
+	}
+
+	public String getStationSecret() {
+		return stationSecret;
+	}
+
+	public void setStationSecret(String stationSecret) {
+		this.stationSecret = stationSecret;
+	}
+	
+	
 
 }

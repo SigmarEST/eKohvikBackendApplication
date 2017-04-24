@@ -18,7 +18,7 @@ public class CardServiceImpl implements CardService {
 	CardRepository cardRepository;
 	
 	public List<CardDTO> getAllCards(){
-		return (List<CardDTO>) cardRepository.findAll().stream().map(card -> new CardDTO(card.getCardId(), card.getUid(), card.getName(), card.getUser().getEmail())).collect(Collectors.toList());
+		return (List<CardDTO>) cardRepository.findAll().stream().map(card -> new CardDTO(card.getCardId(), card.getUid(), card.getName(), card.getUser().getEmail(), card.getCreatedDate())).collect(Collectors.toList());
 	}
 	
 	public List<Card> getAllCardsByUserEmail(String email){

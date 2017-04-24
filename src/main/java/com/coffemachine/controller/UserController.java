@@ -1,5 +1,6 @@
 package com.coffemachine.controller;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,7 +43,16 @@ public class UserController {
 	
 	@RequestMapping(method = RequestMethod.POST, value = "/")
 	public void addUser(@RequestBody User user){
+		user.setCreatedDate(new Date());
 		userService.addUser(user);
+	}
+	
+	@RequestMapping(method = RequestMethod.POST, value = "/add/")
+	public User addUserFromAPI(@RequestBody User user){
+		user.setCreatedDate(new Date());
+		userService.addUser(user);
+		User createdUser = userService.getByEmail(user.getEmail());
+		return createdUser;
 	}
 	
 	@RequestMapping(method = RequestMethod.DELETE, value = "/{id}")

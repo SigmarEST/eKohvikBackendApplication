@@ -1,6 +1,7 @@
 package com.coffemachine.module;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -35,6 +36,9 @@ public class Card implements Serializable{
 	@NotEmpty
 	private String name;
 	
+	@NotNull
+	private Date createdDate;
+	
 	@ManyToOne
 	@JsonBackReference
 	@JoinColumn(name="userId")
@@ -45,11 +49,13 @@ public class Card implements Serializable{
 		super();
 	}
 
-	public Card(String uID, String name, User user) {
+	public Card(String uID, String name, Date createdDate, User user) {
 		super();
 		this.uid = uID;
 		this.name = name;
+		this.createdDate = createdDate;
 		this.user = user;
+		
 		
 	}
 
@@ -84,6 +90,16 @@ public class Card implements Serializable{
 	public void setName(String name) {
 		this.name = name;
 	}
+
+	public Date getCreatedDate() {
+		return createdDate;
+	}
+
+	public void setCreatedDate(Date createdDate) {
+		this.createdDate = createdDate;
+	}
+	
+	
 
 
 }

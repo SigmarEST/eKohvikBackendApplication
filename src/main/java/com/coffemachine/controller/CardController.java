@@ -1,5 +1,6 @@
 package com.coffemachine.controller;
 
+import java.util.Date;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -49,6 +50,7 @@ public class CardController {
 		User user = userService.getByEmail(email); 
 		if(user != null){
 		card.setUser(user);
+		card.setCreatedDate(new Date());
 		cardService.addCard(card); //cardService.updateCard(card);
 		user.getCards().add(card); 
 		userService.updateUser(user); 

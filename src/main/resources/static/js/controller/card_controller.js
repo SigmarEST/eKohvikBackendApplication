@@ -4,7 +4,7 @@ App
 		.controller(
 				'CardController', ['$scope', 'CardService', 'UserService', function($scope, CardService, UserService) {
 							var self = this;
-							self.card = {cardId : null, uid : null, name:null, user : null};
+							self.card = {cardId : null, uid : null, name:null, user : null, createdDate:null};
 							self.cards = [];
 
 							self.fetchAllCards = function() {
@@ -115,7 +115,8 @@ App
 									cardId : null,
 									uid : null,
 									name: null,
-									user : null
+									user : null,
+									createdDate:null
 								};
 								$scope.myForm.$setPristine(); // reset Form
 							};

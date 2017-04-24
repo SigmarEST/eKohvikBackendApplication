@@ -1,6 +1,7 @@
 package com.coffemachine.module;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -40,6 +41,9 @@ public class User implements Serializable{
 	private boolean active = true;
 	
 	private boolean cardAddingBlocked = false;
+	
+	@NotNull
+	private Date createdDate;
 
 	@JsonManagedReference
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
@@ -50,13 +54,14 @@ public class User implements Serializable{
 	};
 	
 
-	public User(String name, String email, double balance, boolean active, boolean cardAddingBlocked, Set<Card> cards) {
+	public User(String name, String email, double balance, boolean active, boolean cardAddingBlocked, Date createdDate, Set<Card> cards) {
 		super();
 		this.name = name;
 		this.email = email;
 		this.balance = balance;
 		this.active = active;
 		this.cardAddingBlocked = cardAddingBlocked;
+		this.createdDate = createdDate;
 		this.cards = cards;
 	}
 
@@ -118,5 +123,16 @@ public class User implements Serializable{
 	public void setCards(Set<Card> cards) {
 		this.cards = cards;
 	}
+
+
+	public Date getCreatedDate() {
+		return createdDate;
+	}
+
+
+	public void setCreatedDate(Date createdDate) {
+		this.createdDate = createdDate;
+	}
+	
 	
 }

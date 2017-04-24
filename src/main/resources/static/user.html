@@ -7,6 +7,7 @@
 		<div class="formcontainer">
 			<form ng-submit="ctrl.submit()" name="myForm" class="form-horizontal">
 				<input type="hidden" ng-model="ctrl.user.userId" />
+				<input type="hidden" ng-model="ctrl.user.createdDate"/>
 
 				<div class="row">
 					<div class="form-group col-md-12">
@@ -87,6 +88,7 @@
 							<th>Balance</th>
 							<th>Active</th>
 							<th>AddCardBlocked</th>
+							<th>CreatedDate</th>
 							<th>Cards</th>
 							<th width="20%"></th>
 						</tr>
@@ -99,6 +101,7 @@
 							<td><span ng-bind="u.balance"></span></td>
 							<td><span ng-bind="u.active"></span></td>
 							<td><span ng-bind="u.cardAddingBlocked"></span>
+							<td><span>{{u.createdDate | date:'yyyy-MM-dd HH:mm'}}</span></td>
 							<td><div ng-repeat="card in u.cards">{{card.name}}</div></td>
 							<td>
 								<button type="button" ng-click="ctrl.edit(u.userId)"

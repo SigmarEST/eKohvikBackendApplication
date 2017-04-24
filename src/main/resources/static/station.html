@@ -13,7 +13,25 @@
 						<label class="col-md-2 control-lable" for="file">Address</label>
 						<div class="col-md-7">
 							<input type="text" ng-model="ctrl.station.address" name="address"
-								placeholder="Enter station address" />
+								placeholder="Enter station address" required/>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="form-group col-md-12">
+						<label class="col-md-2 control-lable" for="file">Station Name</label>
+						<div class="col-md-7">
+							<input type="text" ng-model="ctrl.station.stationName" name="stationName"
+								placeholder="Enter station name" required />
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="form-group col-md-12">
+						<label class="col-md-2 control-lable" for="file">Station Secret</label>
+						<div class="col-md-7">
+							<input type="text" ng-model="ctrl.station.stationSecret" name="stationSecret"
+								placeholder="Enter station secret" />
 						</div>
 					</div>
 				</div>
@@ -23,7 +41,7 @@
 							value="{{!ctrl.station.stationId ? 'Add':'Update'}}"
 							class="btn btn-primary btn-sm" />
 						<button type="button" ng-click="ctrl.reset()"
-							class="btn btn-warning btn-sm">ResetForm</button>
+							class="btn btn-warning btn-sm" ng-disabled="myForm.$invalid">ResetForm</button>
 					</div>
 				</div>
 			</form>
@@ -39,6 +57,8 @@
 						<tr>
 							<th>ID.</th>
 							<th>Address</th>
+							<th>Station name</th>
+							<th>Station secret</th>
 							<th width="20%"></th>
 						</tr>
 					</thead>
@@ -46,6 +66,8 @@
 						<tr ng-repeat="u in ctrl.stations">
 							<td><span ng-bind="u.stationId"></span></td>
 							<td><span ng-bind="u.address"></span></td>
+							<td><span ng-bind="u.stationName"></span>
+							<td><span ng-bind="u.stationSecret"></span>
 							<td>
 								<button type="button" ng-click="ctrl.edit(u.stationId)"
 									class="btn btn-success custom-width">Edit</button>

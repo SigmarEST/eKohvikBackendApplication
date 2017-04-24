@@ -2,7 +2,7 @@
 
 App.controller('StationController', ['$scope', 'StationService', function($scope, StationService) {
           var self = this;
-          self.station={stationId:null, address:''};
+          self.station={stationId:null, address:'', stationName:null, stationSecret:null };
           self.stations=[];
               
           self.fetchAllStations = function(){
@@ -84,7 +84,7 @@ App.controller('StationController', ['$scope', 'StationService', function($scope
 
           
           self.reset = function(){
-              self.station={stationId:null, address:''};
+              self.station={stationId:null, address:'', stationName:null, stationSecret:null};
               $scope.myForm.$setPristine(); //reset Form
           };
 

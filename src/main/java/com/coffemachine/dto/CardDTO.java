@@ -1,6 +1,7 @@
 package com.coffemachine.dto;
 
 import java.io.Serializable;
+import java.util.Date;
 
 public class CardDTO implements Serializable{
 
@@ -15,8 +16,9 @@ public class CardDTO implements Serializable{
 	
 	private String name;
 
-
 	private String userEmail;
+	
+	private Date createdDate;
 	
 
 	public CardDTO() {
@@ -24,12 +26,13 @@ public class CardDTO implements Serializable{
 	}
 
 
-	public CardDTO(Long cardId, String uid, String name, String userEmail) {
+	public CardDTO(Long cardId, String uid, String name, String userEmail, Date createdDate) {
 		super();
 		this.cardId = cardId;
 		this.uid = uid;
 		this.name = name;
 		this.userEmail = userEmail;
+		this.createdDate = createdDate;
 	}
 
 
@@ -71,6 +74,15 @@ public class CardDTO implements Serializable{
 		this.userEmail = userEmail;
 	}
 
+
+	public Date getCreatedDate() {
+		return createdDate;
+	}
+
+
+	public void setCreatedDate(Date createdDate) {
+		this.createdDate = createdDate;
+	}
 
 
 }
