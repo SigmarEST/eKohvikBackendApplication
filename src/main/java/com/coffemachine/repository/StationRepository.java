@@ -5,5 +5,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import com.coffemachine.module.Station;
 
 public interface StationRepository extends JpaRepository<Station, Long>{
-	Station findByAddress(String address);
+	public Station findByAddress(String address);
+	public Station findOneByUsername(String username);
 }

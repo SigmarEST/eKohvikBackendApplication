@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,11 +25,13 @@ public class ItemController {
 	@Autowired
 	ItemService itemService;
 	
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@RequestMapping("/")
 	public List<Item> getAllItems(){
 		return itemService.getAllItems();
 	}
 	
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@RequestMapping("items/")
 	public List<Item> getAllActiveItems(){
 		List<Item> items =  itemService.getAllItems();
@@ -43,6 +46,7 @@ public class ItemController {
 		return activeItems;
 	}
 	
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@RequestMapping("/{id}")
 	public ResponseEntity<Item> getItem(@PathVariable Long id){
 		 System.out.println("Fetching item with id " + id);
@@ -54,6 +58,7 @@ public class ItemController {
 	        return new ResponseEntity<Item>(item, HttpStatus.OK);
 	}
 	
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@RequestMapping(method = RequestMethod.POST, value="/")
 	public ResponseEntity<Void> addItem(@RequestBody Item item,   UriComponentsBuilder ucBuilder){
 		 System.out.println("Creating Item " + item.getName());
@@ -70,6 +75,7 @@ public class ItemController {
 	        }
 	}
 	
+	 @PreAuthorize("hasRole('ROLE_ADMIN')")
 	 @RequestMapping(value = "/", method = RequestMethod.PUT)
 	    public ResponseEntity<Item> updateItem(@RequestBody Item item) {
 	        System.out.println("Updating Item " + item.getItemId());
@@ -89,6 +95,7 @@ public class ItemController {
 	        return new ResponseEntity<Item>(currentItem, HttpStatus.OK);
 	    }
 	 
+	 @PreAuthorize("hasRole('ROLE_ADMIN')")
 	  @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
 	    public ResponseEntity<Item> deleteItem(@PathVariable("id") Long id) {
 	        System.out.println("Fetching & Deleting Item with id " + id);

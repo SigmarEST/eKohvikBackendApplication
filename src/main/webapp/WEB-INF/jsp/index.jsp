@@ -10,50 +10,35 @@
 <base href="/" />
 </head>
 <body>
-	<nav class="navbar navbar-inverse">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse"
-					data-target="#myNavbar">
-					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
-						class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="#"> </a>
-			</div>
-			<div class="collapse navbar-collapse" id="myNavbar">
-				<ul class="nav navbar-nav">
-					<li><a href="/home">Home</a></li>
-					<li><a href="/items">Items</a></li>
-					<li><a href="/users">Users</a></li>
-					<li><a href="/cards">Cards</a></li>
-					<li><a href="/stations">Stations</a></li>
-					<li><a href="/purchases">Purchases</a></li>
-				</ul>
-				<ul class="nav navbar-nav navbar-right">
-					<li><a href="#"><span class="glyphicon glyphicon-log-in"></span>
-							Login</a></li>
-				</ul>
-			</div>
-		</div>
-	</nav>
+	<div ui-view="nav"></div>	
 	<div>
 	<ng-view></ng-view>
 	</div>
 	
-	<script src="<c:url value='js/angular.js' />"></script>
-	<script src="<c:url value='js/angular-route.js' />"></script>
-	<script src="<c:url value='js/app.js' />"></script>
-	<script src="<c:url value='js/controller/home_controller.js' />"></script>
-	<script src="<c:url value='js/service/item_service.js' />"></script>
-	<script src="<c:url value='js/controller/item_controller.js' />"></script>
-	<script src="<c:url value='js/service/station_service.js' />"></script>
-	<script src="<c:url value='js/controller/station_controller.js' />"></script>
-	<script src="<c:url value='js/service/user_service.js' />"></script>
-	<script src="<c:url value='js/controller/user_controller.js' />"></script>
-	<script src="<c:url value='js/service/card_service.js' />"></script>
-	<script src="<c:url value='js/controller/card_controller.js' />"></script>
-	<script src="<c:url value='js/service/purchase_service.js' />"></script>
-	<script src="<c:url value='js/controller/purchase_controller.js' />"></script>
+	<script src="app/angular.js' />"></script>
+	<script src="app/angular-route.js' />"></script>
+	<script src="app/app.js' />"></script>
+	<script type="text/javascript" src="app/route.js"></script>
+	
+	
+	<script src="app/service/auth-service.js"></script>
+	<script src="app/service/item_service.js' />"></script>
+	<script src="app/service/station_service.js' />"></script>
+	<script src="app/service/user_service.js' />"></script>
+	<script src="app/service/card_service.js' />"></script>
+	<script src="app/service/purchase_service.js' />"></script>
+
+	<!-- Including controllers -->
+	<script  src="app/controller/nav.js"></script>
+	<script  src="app/controller/login.js"></script>
+	<script  src="app/controller/page-not-found.js"></script>
+	<script src="app/controller/access-denied.js"></script>
+	<script src="app/controller/home_controller.js' />"></script>
+	<script src="app/controller/item_controller.js' />"></script>
+	<script src="app/controller/station_controller.js' />"></script>
+	<script src="app/controller/user_controller.js' />"></script>
+	<script src="app/controller/card_controller.js' />"></script>
+	<script src="app/controller/purchase_controller.js' />"></script>
 	
 </body>
 </html>

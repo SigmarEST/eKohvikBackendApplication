@@ -3,6 +3,7 @@ package com.coffemachine.controller;
 import java.util.Date;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,18 +23,21 @@ public class CardController {
 	CardService cardService;
 	@Autowired
 	UserService userService;
-
+	
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@RequestMapping("/")
 	public List<CardDTO> getRestAllCards() {
 		return cardService.getAllCards();
 	}
 	
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@RequestMapping("/{uid}")
 	public Card getCardByUid(@PathVariable String uid) {
 		return cardService.getCardByUID(uid);
 
 	}
 	
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@RequestMapping("user/{uid}")
 	public User getUserByCardUid(@PathVariable String uid){
 		Card card = cardService.getCardByUID(uid);
@@ -44,7 +48,7 @@ public class CardController {
 		return null;
 	}
 	
-	//api/card/email
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@RequestMapping(method = RequestMethod.POST, value ="/email/{email:.+}") 
 	public void addCardByEmail(@PathVariable String email, @RequestBody Card card){
 		User user = userService.getByEmail(email); 
@@ -57,27 +61,19 @@ public class CardController {
 		}
 	}
 	
-	/*@RequestMapping(method = RequestMethod.POST, value ="/") 
-	public void addCard(@RequestBody Card card){
-		cardService.addCard(card); //cardService.updateCard(card);
-		User user = card.getUser();
-		user.getCards().add(card); 
-		userService.updateUser(user); 
-	}*/
-
-	
+	 @PreAuthorize("hasRole('ROLE_ADMIN')")
 	 @RequestMapping(method = RequestMethod.GET, value="/email/{email}") 
 	 public List<Card> getAllCardsByUser(@PathVariable String email) { 
 		 return cardService.getAllCardsByUserEmail(email); 
 	 }
 
-	
+	 @PreAuthorize("hasRole('ROLE_ADMIN')")
 	 @RequestMapping(method = RequestMethod.PUT, value = "/")
 	 public void updateCard(@RequestBody Card card) {
 		 cardService.updateCard(card); 
 	 }
 
-	
+	 @PreAuthorize("hasRole('ROLE_ADMIN')")
 	 @RequestMapping(method = RequestMethod.DELETE, value = "/{id}") 
 	 public void deleteCard(@PathVariable Long id) {
 		 Card card = cardService.getCard(id);

@@ -15,4 +15,6 @@ public interface AdminService {
 	public void deleteAdmin(Long id);
 	
 	public void updateAdmin(Admin admin);
+	
+	public Admin findOneByUsername(String username);
 }

@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,28 +26,33 @@ public class UserController {
 	@Autowired
 	PurchaseService purchaseService;
 	
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@RequestMapping("/")
 	public List<User> getAllUsers(){
 		return userService.getAllUsers();
 	}
 	
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@RequestMapping("/{id}")
 	public User getUserById(@PathVariable Long id){
 		return userService.getUser(id);
 	}
 	
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@RequestMapping("/email/{email:.+}")
 	public User getUserByEmail(@PathVariable String email){
 		System.out.println(email);
 		return userService.getByEmail(email);
 	}
 	
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@RequestMapping(method = RequestMethod.POST, value = "/")
 	public void addUser(@RequestBody User user){
 		user.setCreatedDate(new Date());
 		userService.addUser(user);
 	}
 	
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@RequestMapping(method = RequestMethod.POST, value = "/add/")
 	public User addUserFromAPI(@RequestBody User user){
 		user.setCreatedDate(new Date());
@@ -55,6 +61,7 @@ public class UserController {
 		return createdUser;
 	}
 	
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/{id}")
 	public void deleteUser(@PathVariable Long id){
 		for(int i=0; i<purchaseService.getAllPurchases().size(); i++){
@@ -64,7 +71,8 @@ public class UserController {
 		}
 		userService.deleteUser(id);
 	}
-	  
+	
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@RequestMapping(method  = RequestMethod.PUT, value = "/")
 	public void userUpdate(@RequestBody User user){
 		userService.updateUser(user);
