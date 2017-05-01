@@ -1,6 +1,6 @@
 'use strict';
 
-App.factory('StationService', ['$http', '$q', function($http, $q){
+App.factory('StationService', function($http, $q){
 
 	var backendUrl = 'http://localhost:8081/api/station/';
 
@@ -60,4 +60,4 @@ App.factory('StationService', ['$http', '$q', function($http, $q){
 		
 	};
 
-}]);
+});

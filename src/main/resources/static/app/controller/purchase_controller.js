@@ -2,7 +2,7 @@
 
 App
 		.controller(
-				'PurchaseController', ['$scope', 'PurchaseService', 'UserService' ,'ItemService', function($scope, PurchaseService, CardService, UserService) {
+				'PurchaseController', function($scope, PurchaseService, CardService, UserService) {
 							var self = this;
 							self.purchase = {purchaseId : null, dateTime : null,  user : null, cost:null, items:[]};
 							self.purchases = [];
@@ -98,4 +98,4 @@ App
 					              $scope.myForm.$setPristine(); //reset Form
 					          };
 
-					      }]);
+					      });

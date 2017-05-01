@@ -1,6 +1,6 @@
 'use strict';
 
-App.controller('UserController', ['$scope', 'UserService', function($scope, UserService) {
+App.controller('UserController', function($scope, UserService) {
           var self = this;
           self.user={userId:null, name:null, email:null, balance:null, active:null, cardAddingBlocked:null, createdDate:null, cards:[] };
           self.users=[];
@@ -89,4 +89,4 @@ App.controller('UserController', ['$scope', 'UserService', function($scope, User
               $scope.myForm.$setPristine(); //reset Form
           };
 
-      }]);
+      });

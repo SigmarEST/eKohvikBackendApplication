@@ -1,3 +1,3 @@
 App
-.controller('AccessDeniedController',['$http', '$scope', 'AuthService', function($http, $scope, AuthService) {
-}]);
+.controller('AccessDeniedController', function($http, $scope, AuthService) {
+});

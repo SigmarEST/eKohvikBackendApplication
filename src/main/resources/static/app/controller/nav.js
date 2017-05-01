@@ -1,6 +1,6 @@
 App
 // Creating the Angular Controller
-.controller('NavController', ['$http','$scope','AuthService','$state','$rootScope', function($http, $scope, AuthService, $state, $rootScope) {
+.controller('NavController', function($http, $scope, AuthService, $state, $rootScope) {
 	$scope.$on('LoginSuccessful', function() {
 		$scope.user = AuthService.user;
 	});
@@ -12,4 +12,4 @@ App
 		$rootScope.$broadcast('LogoutSuccessful');
 		$state.go('login');
 	};
-}]);
+});

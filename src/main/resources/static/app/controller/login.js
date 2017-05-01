@@ -1,5 +1,5 @@
 App
-.controller('LoginController',['$http','$scope','$state','$rootScope', function($http, $scope, $state, AuthService, $rootScope) {
+.controller('LoginController', function($http, $scope, $state, AuthService, $rootScope) {
 	// method for login
 	$scope.login = function() {
 		// requesting the token by usename and passoword
@@ -20,6 +20,7 @@ App
 
 				// setting the user in AuthService
 				AuthService.user = res.user;
+				console.log($rootScope)
 				$rootScope.$broadcast('LoginSuccessful');
 				// going to the home page
 				$state.go('home');
@@ -33,4 +34,4 @@ App
 			$scope.message = 'Authetication Failed !';
 		});
 	};
-}]);
+});

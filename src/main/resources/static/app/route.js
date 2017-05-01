@@ -13,7 +13,6 @@ angular.module('myApp').config(function($stateProvider, $urlRouterProvider) {
 				}
 			}
 		}).state('login', {
-			parent : 'nav',
 			url : '/login',
 			views : {
 				'content@' : {
@@ -91,7 +90,6 @@ angular.module('myApp').config(function($stateProvider, $urlRouterProvider) {
 				}
 			}
 		}).state('page-not-found', {
-			parent : 'nav',
 			url : '/page-not-found',
 			views : {
 				'content@' : {
@@ -100,7 +98,6 @@ angular.module('myApp').config(function($stateProvider, $urlRouterProvider) {
 				}
 			}
 		}).state('access-denied', {
-			parent : 'nav',
 			url : '/access-denied',
 			views : {
 				'content@' : {
@@ -110,6 +107,5 @@ angular.module('myApp').config(function($stateProvider, $urlRouterProvider) {
 			}
 		})
 		
-		//$locationProvider.html5Mode(true)
 		
 });

@@ -19,7 +19,7 @@
 				</div>
 				<div class="row">
 					<div class="form-group col-md-12">
-						<label class="col-md-2 control-lable" for="file">Station Name</label>
+						<label class="col-md-2 control-lable" for="file">Username</label>
 						<div class="col-md-7">
 							<input type="text" ng-model="ctrl.station.stationName" name="stationName"
 								placeholder="Enter station name" required />
@@ -28,7 +28,7 @@
 				</div>
 				<div class="row">
 					<div class="form-group col-md-12">
-						<label class="col-md-2 control-lable" for="file">Station Secret</label>
+						<label class="col-md-2 control-lable" for="file">Password</label>
 						<div class="col-md-7">
 							<input type="text" ng-model="ctrl.station.stationSecret" name="stationSecret"
 								placeholder="Enter station secret" />
@@ -39,9 +39,9 @@
 					<div class="form-actions">
 						<input type="submit"
 							value="{{!ctrl.station.stationId ? 'Add':'Update'}}"
-							class="btn btn-primary btn-sm" />
+							class="btn btn-primary btn-sm" ng-disabled="myForm.$invalid"/>
 						<button type="button" ng-click="ctrl.reset()"
-							class="btn btn-warning btn-sm" ng-disabled="myForm.$invalid">ResetForm</button>
+							class="btn btn-warning btn-sm">ResetForm</button>
 					</div>
 				</div>
 			</form>

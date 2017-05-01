@@ -1,6 +1,6 @@
 'use strict';
 
-App.controller('ItemController', ['$scope', 'ItemService', function($scope, ItemService) {
+App.controller('ItemController', function($scope, ItemService) {
           var self = this;
           self.item={itemId:null, name:null, price:null ,available:true};
           self.items=[];
@@ -88,4 +88,4 @@ App.controller('ItemController', ['$scope', 'ItemService', function($scope, Item
               $scope.myForm.$setPristine(); //reset Form
           };
 
-      }]);
+      });

@@ -1,22 +1,8 @@
 package com.coffemachine.controller;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+@RestController
 public class HomeController {
-	
-	@RequestMapping({
-		"/",
-		"/items",
-		"/users",
-		"/stations",
-		"/purchases",
-		"/cards"	
-	})
-	
-	public String index(){
-		return "index";
-	}
 
 }

@@ -1,6 +1,6 @@
 'use strict';
 
-App.controller('StationController', ['$scope', 'StationService', function($scope, StationService) {
+App.controller('StationController', function($scope, StationService) {
           var self = this;
           self.station={stationId:null, address:'', stationName:null, stationSecret:null };
           self.stations=[];
@@ -88,4 +88,4 @@ App.controller('StationController', ['$scope', 'StationService', function($scope
               $scope.myForm.$setPristine(); //reset Form
           };
 
-      }]);
+      });

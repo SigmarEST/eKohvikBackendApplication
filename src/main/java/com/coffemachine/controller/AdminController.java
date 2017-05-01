@@ -77,6 +77,7 @@ public class AdminController {
 	@RequestMapping(value = "/authenticate", method = RequestMethod.POST)
 	public ResponseEntity<Map<String, Object>> login(@RequestParam String username, @RequestParam String password,
 			HttpServletResponse response) throws IOException {
+		System.out.println("I am here ");
 		String token = null;
 		Admin admin = adminService.findOneByUsername(username);
 		Map<String, Object> tokenMap = new HashMap<String, Object>();

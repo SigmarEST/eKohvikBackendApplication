@@ -2,7 +2,7 @@
 
 App
 		.controller(
-				'CardController', ['$scope', 'CardService', 'UserService', function($scope, CardService, UserService) {
+				'CardController', function($scope, CardService, UserService) {
 							var self = this;
 							self.card = {cardId : null, uid : null, name:null, user : null, createdDate:null};
 							self.cards = [];
@@ -121,4 +121,4 @@ App
 								$scope.myForm.$setPristine(); // reset Form
 							};
 
-						} ]);
+						} );
