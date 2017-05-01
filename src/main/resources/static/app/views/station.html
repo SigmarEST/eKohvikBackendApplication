@@ -6,7 +6,7 @@
 		</div>
 		<div class="formcontainer">
 			<form ng-submit="ctrl.submit()" name="myForm" class="form-horizontal">
-				<input type="hidden" ng-model="ctrl.station.stationId" />
+				<input type="hidden" ng-model="ctrl.station.id" />
 
 				<div class="row">
 					<div class="form-group col-md-12">
@@ -21,8 +21,8 @@
 					<div class="form-group col-md-12">
 						<label class="col-md-2 control-lable" for="file">Username</label>
 						<div class="col-md-7">
-							<input type="text" ng-model="ctrl.station.stationName" name="stationName"
-								placeholder="Enter station name" required />
+							<input type="text" ng-model="ctrl.station.username" name="username"
+								placeholder="Enter username" required />
 						</div>
 					</div>
 				</div>
@@ -30,15 +30,15 @@
 					<div class="form-group col-md-12">
 						<label class="col-md-2 control-lable" for="file">Password</label>
 						<div class="col-md-7">
-							<input type="text" ng-model="ctrl.station.stationSecret" name="stationSecret"
-								placeholder="Enter station secret" />
+							<input type="text" ng-model="ctrl.station.password" name="password"
+								placeholder="Enter password" />
 						</div>
 					</div>
 				</div>
 				<div class="row">
 					<div class="form-actions">
 						<input type="submit"
-							value="{{!ctrl.station.stationId ? 'Add':'Update'}}"
+							value="{{!ctrl.station.id ? 'Add':'Update'}}"
 							class="btn btn-primary btn-sm" ng-disabled="myForm.$invalid"/>
 						<button type="button" ng-click="ctrl.reset()"
 							class="btn btn-warning btn-sm">ResetForm</button>
@@ -57,21 +57,21 @@
 						<tr>
 							<th>ID.</th>
 							<th>Address</th>
-							<th>Station name</th>
-							<th>Station secret</th>
+							<th>Username</th>
+							<th>Password</th>
 							<th width="20%"></th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr ng-repeat="u in ctrl.stations">
-							<td><span ng-bind="u.stationId"></span></td>
+							<td><span ng-bind="u.id"></span></td>
 							<td><span ng-bind="u.address"></span></td>
-							<td><span ng-bind="u.stationName"></span>
-							<td><span ng-bind="u.stationSecret"></span>
+							<td><span ng-bind="u.username"></span>
+							<td><span ng-bind="u.password"></span>
 							<td>
-								<button type="button" ng-click="ctrl.edit(u.stationId)"
+								<button type="button" ng-click="ctrl.edit(u.id)"
 									class="btn btn-success custom-width">Edit</button>
-								<button type="button" ng-click="ctrl.remove(u.stationId)"
+								<button type="button" ng-click="ctrl.remove(u.id)"
 									class="btn btn-danger custom-width">Remove</button>
 							</td>
 						</tr>

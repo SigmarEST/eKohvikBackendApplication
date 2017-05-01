@@ -19,8 +19,6 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
 @Entity
 @Table(name = "station")
@@ -33,15 +31,17 @@ public class Station implements Serializable, UserDetails{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long stationId;
+	private Long id;
 
 	@NotNull
 	private String address;
 	
 	@Column(unique = true)
 	private String username;
-	@JsonProperty(access = Access.WRITE_ONLY)
+	
+	//@JsonProperty(access = Access.WRITE_ONLY)
 	private String password;
+	
 	@ElementCollection
 	private List<String> roles = new ArrayList<>();	
 
@@ -49,19 +49,20 @@ public class Station implements Serializable, UserDetails{
 		super();
 	}
 
-	public Station(String address,String username, String password) {
+	public Station(String address,String username, String password, List<String> roles) {
 		super();
 		this.address = address;
 		this.username = username;
 		this.password = password;
+		this.roles = roles;
 	}
 
-	public Long getStationId() {
-		return stationId;
+	public Long getId() {
+		return id;
 	}
 
-	public void setStationId(Long stationId) {
-		this.stationId = stationId;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getAddress() {

@@ -1,6 +1,7 @@
 package com.coffemachine.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -57,13 +58,16 @@ public class StationController {
 	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@RequestMapping(method = RequestMethod.POST, value = "/")
 	public ResponseEntity<Void> addStation(@RequestBody Station station, UriComponentsBuilder ucBuilder) {
-		System.out.println("Creating Station " + station.getAddress());
+		System.out.println("Creating Station " + station.getUsername());
 
-		if (stationService.isStationExist(station)) {
-			System.out.println("A Station with name " + station.getAddress() + " already exist");
+		if (stationService.findOneByUsername(station.getUsername()) != null) {
+			System.out.println("A Station with name " + station.getUsername() + " already exist");
 			return new ResponseEntity<Void>(HttpStatus.CONFLICT);
 		} else {
-
+			String role = "ADMIN";
+			List<String> roles = new ArrayList<>();
+			roles.add(role);
+			station.setRoles(roles);
 			stationService.addStation(station);
 			return new ResponseEntity<Void>(HttpStatus.CREATED);
 		}
@@ -72,12 +76,12 @@ public class StationController {
 	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@RequestMapping(value = "/", method = RequestMethod.PUT)
 	public ResponseEntity<Station> updateStation(@RequestBody Station station) {
-		System.out.println("Updating Station " + station.getStationId());
+		System.out.println("Updating Station " + station.getId());
 
-		Station currentStation = stationService.getStation(station.getStationId());
+		Station currentStation = stationService.getStation(station.getId());
 
 		if (currentStation == null) {
-			System.out.println("Station with id " + station.getStationId() + " not found");
+			System.out.println("Station with id " + station.getId() + " not found");
 			return new ResponseEntity<Station>(HttpStatus.NOT_FOUND);
 		}
 

@@ -22,12 +22,6 @@ import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureException;
 
-/**
- * A generic filter for security. I will check token present in the header.
- * 
- * @author Sarath Muraleedharan
- *
- */
 public class JWTFilter extends GenericFilterBean {
 	private static final String AUTHORIZATION_HEADER = "Authorization";
 	private static final String AUTHORITIES_KEY = "roles";
@@ -62,6 +56,7 @@ public class JWTFilter extends GenericFilterBean {
 	 */
 	public Authentication getAuthentication(Claims claims) {
 		List<SimpleGrantedAuthority> authorities = new ArrayList<SimpleGrantedAuthority>();
+		@SuppressWarnings("unchecked")
 		List<String> roles = (List<String>) claims.get(AUTHORITIES_KEY);
 		for (String role : roles) {
 			authorities.add(new SimpleGrantedAuthority(role));

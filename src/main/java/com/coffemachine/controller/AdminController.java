@@ -1,6 +1,7 @@
 package com.coffemachine.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -20,8 +21,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.util.UriComponentsBuilder;
+
 import com.coffemachine.module.Admin;
-import com.coffemachine.module.Station;
 import com.coffemachine.services.AdminService;
 
 import io.jsonwebtoken.Jwts;
@@ -46,11 +48,31 @@ public class AdminController {
 		return adminService.getAdmin(id);
 	}
 	
-	@PreAuthorize("hasRole('ROLE_ADMIN')")
+/*	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@RequestMapping(method = RequestMethod.POST, value = "/")
 	public void addAdmin(@RequestBody Admin admin){
 		adminService.addAdmin(admin);
+	}*/
+	
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
+	@RequestMapping(method = RequestMethod.POST, value = "/")
+	public ResponseEntity<Void> addAdmin(@RequestBody Admin admin, UriComponentsBuilder ucBuilder) {
+		System.out.println("Creating Admin " + admin.getUsername());
+
+		if (adminService.findOneByUsername(admin.getUsername()) != null) {
+			System.out.println("A Station with name " + admin.getUsername() + " already exist");
+			return new ResponseEntity<Void>(HttpStatus.CONFLICT);
+		} else {
+			String role = "ADMIN";
+			List<String> roles = new ArrayList<>();
+			roles.add(role);
+			admin.setRoles(roles);
+			adminService.addAdmin(admin);
+			return new ResponseEntity<Void>(HttpStatus.CREATED);
+		}
 	}
+	
+	
 	
 	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@RequestMapping(method = RequestMethod.PUT, value = "/")

@@ -2,7 +2,7 @@
 
 App.controller('StationController', function($scope, StationService) {
           var self = this;
-          self.station={stationId:null, address:'', stationName:null, stationSecret:null };
+          self.station={id:null, address:'', username:null, password:null };
           self.stations=[];
               
           self.fetchAllStations = function(){
@@ -10,6 +10,7 @@ App.controller('StationController', function($scope, StationService) {
                   .then(
       					       function(d) {
       						        self.stations = d;
+      						        console.log(d);
       					       },
             					function(errResponse){
             						console.error('Error while fetching Stations');
@@ -41,8 +42,8 @@ App.controller('StationController', function($scope, StationService) {
           
           self.fetchAllStations();
 
-         self.deleteStation = function(stationId){
-              StationService.deleteStation(stationId)
+         self.deleteStation = function(id){
+              StationService.deleteStation(id)
 		              .then(
 				              self.fetchAllStations, 
 				              function(errResponse){
@@ -54,37 +55,37 @@ App.controller('StationController', function($scope, StationService) {
           self.fetchAllStations();
 
           self.submit = function() {
-              if(self.station.stationId==null){
+              if(self.station.id==null){
                   console.log('Saving New Station', self.station);    
                   self.createStation(self.station);
               }else{
                   self.updateStation(self.station);
-                  console.log('Station updated with id ', self.station.stationId);
+                  console.log('Station updated with id ', self.station.id);
               }
               self.reset();
           };
               
-          self.edit = function(stationId){
-              console.log('id to be edited', stationId);
+          self.edit = function(id){
+              console.log('id to be edited', id);
               for(var i = 0; i < self.stations.length; i++){
-                  if(self.stations[i].stationId == stationId) {
+                  if(self.stations[i].id == id) {
                      self.station = angular.copy(self.stations[i]);
                      break;
                   }
               }
           };
               
-          self.remove = function(stationId){
-              console.log('id to be deleted', stationId);
-              if(self.station.stationId === stationId) {//clean form if the item to be deleted is shown there.
+          self.remove = function(id){
+              console.log('id to be deleted', id);
+              if(self.station.id === id) {//clean form if the item to be deleted is shown there.
                  self.reset();
               }
-              self.deleteStation(stationId);
+              self.deleteStation(id);
           };
 
           
           self.reset = function(){
-              self.station={stationId:null, address:'', stationName:null, stationSecret:null};
+              self.station={id:null, address:'', username:null, password:null};
               $scope.myForm.$setPristine(); //reset Form
           };
 

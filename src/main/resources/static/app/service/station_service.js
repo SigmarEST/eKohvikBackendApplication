@@ -45,8 +45,8 @@ App.factory('StationService', function($http, $q){
 							);
 			},
 		    
-			deleteStation: function(stationId){
-					return $http.delete(backendUrl+stationId)
+			deleteStation: function(id){
+					return $http.delete(backendUrl+id)
 							.then(
 									function(response){
 										return response.data;
