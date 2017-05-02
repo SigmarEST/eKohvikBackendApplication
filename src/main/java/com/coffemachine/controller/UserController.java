@@ -45,6 +45,14 @@ public class UserController {
 		return userService.getByEmail(email);
 	}
 	
+	//for station only
+	@PreAuthorize("hasRole('ROLE_USER')")
+	@RequestMapping("/station/email/{email:.+}")
+	public User getUserByEmailForStation(@PathVariable String email){
+		System.out.println(email);
+		return userService.getByEmail(email);
+	}
+	
 	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@RequestMapping(method = RequestMethod.POST, value = "/")
 	public void addUser(@RequestBody User user){
@@ -52,7 +60,8 @@ public class UserController {
 		userService.addUser(user);
 	}
 	
-	@PreAuthorize("hasRole('ROLE_ADMIN')")
+	//for station only
+	@PreAuthorize("hasRole('ROLE_USER')")
 	@RequestMapping(method = RequestMethod.POST, value = "/add/")
 	public User addUserFromAPI(@RequestBody User user){
 		user.setCreatedDate(new Date());

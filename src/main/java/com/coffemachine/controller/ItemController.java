@@ -31,7 +31,8 @@ public class ItemController {
 		return itemService.getAllItems();
 	}
 	
-	@PreAuthorize("hasRole('ROLE_ADMIN')")
+	//for station only
+	@PreAuthorize("hasRole('ROLE_USER')")
 	@RequestMapping("items/")
 	public List<Item> getAllActiveItems(){
 		List<Item> items =  itemService.getAllItems();

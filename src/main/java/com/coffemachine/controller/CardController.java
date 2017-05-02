@@ -37,7 +37,16 @@ public class CardController {
 
 	}
 	
-	@PreAuthorize("hasRole('ROLE_ADMIN')")
+	//for station only
+	@PreAuthorize("hasRole('ROLE_USER')")
+	@RequestMapping("/station/{uid}")
+	public Card getCardByUidForStation(@PathVariable String uid) {
+		return cardService.getCardByUID(uid);
+
+	}
+	
+	//for only station
+	@PreAuthorize("hasRole('ROLE_USER')")
 	@RequestMapping("user/{uid}")
 	public User getUserByCardUid(@PathVariable String uid){
 		Card card = cardService.getCardByUID(uid);
@@ -48,7 +57,8 @@ public class CardController {
 		return null;
 	}
 	
-	@PreAuthorize("hasRole('ROLE_ADMIN')")
+	//for station only
+	@PreAuthorize("hasRole('ROLE_USER')")
 	@RequestMapping(method = RequestMethod.POST, value ="/email/{email:.+}") 
 	public void addCardByEmail(@PathVariable String email, @RequestBody Card card){
 		User user = userService.getByEmail(email); 

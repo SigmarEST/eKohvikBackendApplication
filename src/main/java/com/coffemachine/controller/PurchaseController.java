@@ -38,7 +38,8 @@ public class PurchaseController {
 		return purchaseService.getPurchase(id).getUser().getUserId();
 	}
 	
-	@PreAuthorize("hasRole('ROLE_ADMIN')")
+	//for only station
+	@PreAuthorize("hasRole('ROLE_USER')")
 	@RequestMapping(method = RequestMethod.POST, value = "/")
 	public void addPurchase(@RequestBody Purchase purchase){
 		purchase.setDateTime(new Date());

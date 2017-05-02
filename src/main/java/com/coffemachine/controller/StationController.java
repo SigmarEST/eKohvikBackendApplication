@@ -64,7 +64,7 @@ public class StationController {
 			System.out.println("A Station with name " + station.getUsername() + " already exist");
 			return new ResponseEntity<Void>(HttpStatus.CONFLICT);
 		} else {
-			String role = "ADMIN";
+			String role = "USER";
 			List<String> roles = new ArrayList<>();
 			roles.add(role);
 			station.setRoles(roles);
