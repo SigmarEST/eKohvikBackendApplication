@@ -109,6 +109,7 @@ public class StationController {
 	@RequestMapping(value = "/authenticate", method = RequestMethod.POST)
 	public ResponseEntity<Map<String, Object>> login(@RequestParam String username, @RequestParam String password,
 			HttpServletResponse response) throws IOException {
+		System.out.println("I am bitch and here");
 		String token = null;
 		Station station = stationService.findOneByUsername(username);
 		Map<String, Object> tokenMap = new HashMap<String, Object>();
