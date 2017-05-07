@@ -3,11 +3,9 @@ package com.coffemachine.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.coffemachine.module.Station;
-import com.coffemachine.repository.RoleRepository;
 import com.coffemachine.repository.StationRepository;
 import com.coffemachine.services.StationService;
 
@@ -16,8 +14,7 @@ public class StationServiceImpl implements StationService {
 	
 	@Autowired
 	StationRepository stationRepository;
-	@Autowired
-    private RoleRepository roleRepository;
+	
    // @Autowired
    // private BCryptPasswordEncoder bCryptPasswordEncoder;
 	

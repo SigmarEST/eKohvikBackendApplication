@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import com.coffemachine.module.Admin;
 import com.coffemachine.repository.AdminRepository;
-import com.coffemachine.repository.RoleRepository;
 import com.coffemachine.services.AdminService;
 
 @Service
