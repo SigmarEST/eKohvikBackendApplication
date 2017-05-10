@@ -95,14 +95,14 @@
 					</thead>
 					<tbody>
 						<tr ng-repeat="u in ctrl.users">
-							<td><span ng-bind="u.userId"></span></td>
-							<td><span ng-bind="u.name"></span></td>
-							<td><span ng-bind="u.email"></span></td>
-							<td><span ng-bind="u.balance"></span></td>
-							<td><span ng-bind="u.active"></span></td>
-							<td><span ng-bind="u.cardAddingBlocked"></span>
-							<td><span>{{u.createdDate | date:'yyyy-MM-dd HH:mm'}}</span></td>
-							<td><div ng-repeat="card in u.cards">{{card.name}}</div></td>
+							<td style="text-align:left"><span ng-bind="u.userId"></span></td>
+							<td style="text-align:left"><span ng-bind="u.name"></span></td>
+							<td style="text-align:left"><span ng-bind="u.email"></span></td>
+							<td style="text-align:left"><span> {{(u.balance).toFixed(2)}}</span></td>
+							<td style="text-align:left"><span> {{(u.active == true)? 'active' : 'not active'}}</span></td>
+							<td style="text-align:left"><span> {{(u.cardAddingBlocked == true)? 'blocked' : 'not blocked'}}</span>
+							<td style="text-align:left"><span>{{u.createdDate | date:'yyyy-MM-dd HH:mm'}}</span></td>
+							<td style="text-align:left"><div ng-repeat="card in u.cards">{{card.name}}</div></td>
 							<td>
 								<button type="button" ng-click="ctrl.edit(u.userId)"
 									class="btn btn-success custom-width">Edit</button>
