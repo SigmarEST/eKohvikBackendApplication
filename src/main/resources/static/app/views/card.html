@@ -18,10 +18,10 @@
 					</thead>
 					<tbody>
 						<tr ng-repeat="u in ctrl.cards">
-							<td><span ng-bind="u.cardId"></span></td>
-							<td><span ng-bind="u.name"></span></td>
-							<td><span ng-bind="u.userEmail"></span></td>
-							<td><span>{{u.createdDate | date:'yyyy-MM-dd HH:mm'}}</span></td>
+							<td style="text-align:left"><span ng-bind="u.cardId"></span></td>
+							<td style="text-align:left"><span ng-bind="u.name"></span></td>
+							<td style="text-align:left"><span ng-bind="u.userEmail"></span></td>
+							<td style="text-align:left"><span>{{u.createdDate | date:'yyyy-MM-dd HH:mm'}}</span></td>
 							<td>
 								<button type="button" ng-click="ctrl.remove(u.cardId)"
 									class="btn btn-danger custom-width">Remove</button>

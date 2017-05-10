@@ -64,10 +64,10 @@
 					</thead>
 					<tbody>
 						<tr ng-repeat="u in ctrl.stations">
-							<td><span ng-bind="u.id"></span></td>
-							<td><span ng-bind="u.address"></span></td>
-							<td><span ng-bind="u.username"></span>
-							<td><span ng-bind="u.password"></span>
+							<td style="text-align:left"><span ng-bind="u.id"></span></td>
+							<td style="text-align:left"><span ng-bind="u.address"></span></td>
+							<td style="text-align:left"><span ng-bind="u.username"></span>
+							<td style="text-align:left"><span ng-bind="u.password"></span>
 							<td>
 								<button type="button" ng-click="ctrl.edit(u.id)"
 									class="btn btn-success custom-width">Edit</button>

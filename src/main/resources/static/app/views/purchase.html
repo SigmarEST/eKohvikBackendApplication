@@ -19,11 +19,11 @@
 					</thead>
 					<tbody>
 						<tr ng-repeat="u in ctrl.purchases">
-							<td><span ng-bind="u.purchaseId"></span></td>
-							<td><span ng-bind="u.user.email"></span></td>
-							<td><div ng-repeat="item in u.items">{{item.name}}</div></td>
-							<td><span ng-bind=u.cost></span>
-							<td><span>{{u.dateTime | date:'yyyy-MM-dd HH:mm'}}</span></td>
+							<td style="text-align:left"><span ng-bind="u.purchaseId"></span></td>
+							<td style="text-align:left"><span ng-bind="u.user.email"></span></td>
+							<td style="text-align:left"><div ng-repeat="item in u.items">{{item.name}}</div></td>
+							<td style="text-align:left"><span ng-bind=u.cost></span>
+							<td style="text-align:left"><span>{{u.dateTime | date:'yyyy-MM-dd HH:mm'}}</span></td>
 							<td>
 								<button type="button" ng-click="ctrl.remove(u.purchaseId)"
 									class="btn btn-danger custom-width">Remove</button>
