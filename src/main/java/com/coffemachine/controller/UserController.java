@@ -56,18 +56,27 @@ public class UserController {
 	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@RequestMapping(method = RequestMethod.POST, value = "/")
 	public void addUser(@RequestBody User user){
-		user.setCreatedDate(new Date());
-		userService.addUser(user);
+		
+		if(userService.getByEmail(user.getEmail()) == null){
+			user.setCreatedDate(new Date());
+			userService.addUser(user);
+		}
+		
 	}
 	
 	//for station only
 	@PreAuthorize("hasRole('ROLE_USER')")
 	@RequestMapping(method = RequestMethod.POST, value = "/add/")
 	public User addUserFromAPI(@RequestBody User user){
+		if(userService.getByEmail(user.getEmail())==null){
 		user.setCreatedDate(new Date());
 		userService.addUser(user);
 		User createdUser = userService.getByEmail(user.getEmail());
 		return createdUser;
+		}
+		else{
+			return null;
+		}
 	}
 	
 	@PreAuthorize("hasRole('ROLE_ADMIN')")
