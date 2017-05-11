@@ -1,5 +1,14 @@
 <div class="container-fluid text-center">
 	<div ng-controller="PurchaseController as ctrl">
+	<div class="formcontainer">
+	<form class="form input-group" style="text-align:right; float:right; width:20%">
+     			 <input class="form-control" ng-model="query" type="text" name="searchBox"
+       			 placeholder="Filter by email" style="text-align:center" autofocus>
+       			 <span class="input-group-addon">
+        				<i class="glyphicon glyphicon-search"></i>
+  				 </span>
+    </form>
+	</div>
 		<div class="grey">
 			<h3>Purchases</h3>
 		</div>
@@ -18,7 +27,7 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr ng-repeat="u in ctrl.purchases">
+						<tr ng-repeat="u in ctrl.purchases | filter:query | orderBy: 'dataTime'">
 							<td style="text-align:left"><span ng-bind="u.purchaseId"></span></td>
 							<td style="text-align:left"><span ng-bind="u.user.email"></span></td>
 							<td style="text-align:left"><div ng-repeat="item in u.items">{{item.name}}</div></td>

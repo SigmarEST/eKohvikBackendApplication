@@ -1,5 +1,7 @@
 package com.coffemachine.controller;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.Date;
 import java.util.List;
 
@@ -47,9 +49,9 @@ public class PurchaseController {
 		for(int i=0; i<purchase.getItems().size(); i++){
 			cost += purchase.getItems().get(i).getPrice();
 		}
-		purchase.setCost(cost);
+		purchase.setCost(new BigDecimal(cost).setScale(2, RoundingMode.HALF_UP).doubleValue());
 		User user = purchase.getUser();
-		user.setBalance(user.getBalance()-cost);
+		user.setBalance(new BigDecimal(user.getBalance()-cost).setScale(2, RoundingMode.HALF_UP).doubleValue());
 		userService.updateUser(user);
 		purchaseService.addPurchase(purchase);
 	}
@@ -58,7 +60,7 @@ public class PurchaseController {
 	@RequestMapping(method = RequestMethod.DELETE, value = "/{id}")
 	public void deletePurchase(@PathVariable Long id){		
 		User user = userService.getUser(purchaseService.getPurchase(id).getUser().getUserId());
-		user.setBalance(user.getBalance()+purchaseService.getPurchase(id).getCost());
+		user.setBalance(new BigDecimal(user.getBalance()+purchaseService.getPurchase(id).getCost()).setScale(2, RoundingMode.HALF_UP).doubleValue());
 		userService.updateUser(user);
 		purchaseService.deletePurchase(id);
 	}
