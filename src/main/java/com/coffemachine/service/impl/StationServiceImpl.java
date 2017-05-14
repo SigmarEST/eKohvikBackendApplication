@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.coffemachine.module.Station;
+import com.coffemachine.model.Station;
 import com.coffemachine.repository.StationRepository;
 import com.coffemachine.services.StationService;
 

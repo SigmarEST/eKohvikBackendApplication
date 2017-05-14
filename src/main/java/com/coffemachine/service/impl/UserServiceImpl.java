@@ -4,7 +4,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.coffemachine.module.User;
+import com.coffemachine.model.User;
 import com.coffemachine.repository.UserRepository;
 import com.coffemachine.services.UserService;
 

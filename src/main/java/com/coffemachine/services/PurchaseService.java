@@ -2,7 +2,7 @@ package com.coffemachine.services;
 
 import java.util.List;
 
-import com.coffemachine.module.Purchase;
+import com.coffemachine.model.Purchase;
 
 public interface PurchaseService {
 	

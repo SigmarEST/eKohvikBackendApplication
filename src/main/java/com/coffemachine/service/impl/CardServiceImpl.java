@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.coffemachine.dto.CardDTO;
-import com.coffemachine.module.Card;
+import com.coffemachine.model.Card;
 import com.coffemachine.repository.CardRepository;
 import com.coffemachine.services.CardService;
 

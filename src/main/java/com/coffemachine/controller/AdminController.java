@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import com.coffemachine.module.Admin;
+import com.coffemachine.model.Admin;
 import com.coffemachine.services.AdminService;
 
 import io.jsonwebtoken.Jwts;

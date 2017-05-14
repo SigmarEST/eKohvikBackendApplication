@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.coffemachine.module.Item;
+import com.coffemachine.model.Item;
 import com.coffemachine.services.ItemService;
 
 import org.springframework.web.util.UriComponentsBuilder;

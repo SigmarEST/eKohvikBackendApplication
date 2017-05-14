@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.coffemachine.module.Card;
+import com.coffemachine.model.Card;
 
 public interface CardRepository extends JpaRepository<Card, Long>{
 	

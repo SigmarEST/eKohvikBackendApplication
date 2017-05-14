@@ -2,7 +2,7 @@ package com.coffemachine.services;
 
 import java.util.List;
 
-import com.coffemachine.module.Item;
+import com.coffemachine.model.Item;
 
 public interface ItemService {
 	

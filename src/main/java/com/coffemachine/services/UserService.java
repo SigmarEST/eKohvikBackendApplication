@@ -2,7 +2,7 @@ package com.coffemachine.services;
 
 import java.util.List;
 
-import com.coffemachine.module.User;
+import com.coffemachine.model.User;
 
 public interface UserService {
 	

@@ -1,4 +1,4 @@
-package com.coffemachine.module;
+package com.coffemachine.model;
 
 import java.io.Serializable;
 import java.util.Date;

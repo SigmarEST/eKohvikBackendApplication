@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.coffemachine.module.Purchase;
+import com.coffemachine.model.Purchase;
 import com.coffemachine.repository.PurchaseRepository;
 import com.coffemachine.services.PurchaseService;
 

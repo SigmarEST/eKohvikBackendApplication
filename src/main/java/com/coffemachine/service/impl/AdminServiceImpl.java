@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.coffemachine.module.Admin;
+import com.coffemachine.model.Admin;
 import com.coffemachine.repository.AdminRepository;
 import com.coffemachine.services.AdminService;
 

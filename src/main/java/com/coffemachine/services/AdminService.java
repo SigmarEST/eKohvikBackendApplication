@@ -2,7 +2,7 @@ package com.coffemachine.services;
 
 import java.util.List;
 
-import com.coffemachine.module.Admin;
+import com.coffemachine.model.Admin;
 
 public interface AdminService {
 	

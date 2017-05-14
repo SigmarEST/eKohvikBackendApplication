@@ -2,7 +2,7 @@ package com.coffemachine.services;
 
 import java.util.List;
 
-import com.coffemachine.module.Station;
+import com.coffemachine.model.Station;
 
 public interface StationService {
 	

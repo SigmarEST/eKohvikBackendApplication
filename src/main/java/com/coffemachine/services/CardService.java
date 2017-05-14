@@ -3,7 +3,7 @@ package com.coffemachine.services;
 import java.util.List;
 
 import com.coffemachine.dto.CardDTO;
-import com.coffemachine.module.Card;
+import com.coffemachine.model.Card;
 
 public interface CardService {
 	

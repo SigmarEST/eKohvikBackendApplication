@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import com.coffemachine.dto.CardDTO;
-import com.coffemachine.module.Card;
-import com.coffemachine.module.User;
+import com.coffemachine.model.Card;
+import com.coffemachine.model.User;
 import com.coffemachine.services.CardService;
 import com.coffemachine.services.UserService;
 

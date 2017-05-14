@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.coffemachine.module.Purchase;
-import com.coffemachine.module.User;
+import com.coffemachine.model.Purchase;
+import com.coffemachine.model.User;
 import com.coffemachine.services.PurchaseService;
 import com.coffemachine.services.UserService;
 
