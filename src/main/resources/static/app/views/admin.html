@@ -1,0 +1,103 @@
+<div class="container-fluid text-center">
+	<div ng-controller="AdminController as ctrl">
+		<div>
+			<h3>Administrator Registration Form</h3>
+			<br>
+		</div>
+		<div class="formcontainer">
+			<form ng-submit="ctrl.submit()" name="myForm" class="form-horizontal">
+				<input type="hidden" ng-model="ctrl.admin.id" />
+				<div class="row">
+					<div class="form-group col-md-12">
+						<label class="col-md-2 control-lable" for="name">Name</label>
+						<div class="col-md-7">
+							<input type="text" ng-model="ctrl.admin.name" name="name"
+								placeholder="Enter your name" required/>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="form-group col-md-12">
+						<label class="col-md-2 control-lable" for="email">Email</label>
+						<div class="col-md-7">
+							<input type="email" ng-model="ctrl.admin.email" name="email"
+								placeholder="Enter your email" required/>
+						</div>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="form-group col-md-12">
+						<label class="col-md-2 control-lable" for="username">Username</label>
+						<div class="col-md-7">
+							<input type="text" ng-model="ctrl.admin.username" name="username"
+								placeholder="Enter username" required/>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="form-group col-md-12">
+						<label class="col-md-2 control-lable" for="password">Password</label>
+						<div class="col-md-7">
+							<input type="password" ng-model="ctrl.admin.password" name="password"
+								placeholder="Enter password" required/>
+						</div>
+					</div>
+				</div>
+								
+				<div class="row">
+					<div class="form-actions">
+						<input type="submit"
+							value="{{!ctrl.admin.id ? 'Add' : 'Update'}}"
+							class="btn btn-primary btn-sm" ng-disabled="myForm.$invalid"/>
+						<button type="button" ng-click="ctrl.reset()"
+							class="btn btn-warning btn-sm">ResetForm</button>
+					</div>
+				</div>
+			</form>
+			<form class="form input-group" style="text-align:right; float:right; width:20%">
+     			 <input class="form-control" ng-model="query" type="text" name="searchBox"
+       			 placeholder="Filter by email" style="text-align:center" autofocus>
+       			 <span class="input-group-addon">
+        				<i class="glyphicon glyphicon-search"></i>
+  				 </span>
+    		</form>
+		</div>
+		<div class="grey">
+			<h3>Users</h3>
+		</div>
+		<div class="panel panel-default">
+
+			<div class="tablecontainer">
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<th>ID.</th>
+							<th>Name</th>
+							<th>Email</th>
+							<th>Username</th>
+							<th>Password</th>
+							<th width="20%"></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="u in ctrl.admins | filter:query | orderBy: 'name' ">
+							<td style="text-align:left"><span ng-bind="u.id"></span></td>
+							<td style="text-align:left"><span ng-bind="u.name"></span></td>
+							<td style="text-align:left"><span ng-bind="u.email"></span></td>
+							<td style="text-align:left"><span ng-bind="u.username"></span></td>
+							<td style="text-align:left"><span ng-bind="u.password"></span></td>
+							<td>
+								<button type="button" ng-click="ctrl.edit(u.id)"
+									class="btn btn-success custom-width">Edit</button>
+								<button type="button" ng-click="ctrl.remove(u.id)"
+									class="btn btn-danger custom-width">Remove</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>

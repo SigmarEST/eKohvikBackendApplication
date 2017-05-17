@@ -32,6 +32,18 @@ angular.module('myApp').config(function($stateProvider, $urlRouterProvider) {
 					controller : 'UserController',
 				}
 			}
+		}).state('admins', {
+			parent : 'nav',
+			url : '/admins',
+			data : {
+				role : 'ADMIN'
+			},
+			views : {
+				'content@' : {
+					templateUrl : 'app/views/admin.html',
+					controller : 'AdminController',
+				}
+			}
 		}).state('items', {
 			parent : 'nav',
 			url : '/items',
