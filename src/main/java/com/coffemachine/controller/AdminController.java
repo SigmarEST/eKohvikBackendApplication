@@ -60,7 +60,7 @@ public class AdminController {
 		System.out.println("Creating Admin " + admin.getUsername());
 
 		if (adminService.findOneByUsername(admin.getUsername()) != null) {
-			System.out.println("A Station with name " + admin.getUsername() + " already exist");
+			System.out.println("Aadmin with name " + admin.getUsername() + " already exist");
 			return new ResponseEntity<Void>(HttpStatus.CONFLICT);
 		} else {
 			String role = "ADMIN";
@@ -89,7 +89,7 @@ public class AdminController {
 		if (appUser == null) {
 			System.out.println("You admin account is not available");
 		} else if (appUser.getUsername().equalsIgnoreCase(loggedUsername)) {
-			throw new RuntimeException("You cannot delete your account");
+			//throw new RuntimeException("You cannot delete your account");
 		} else {
 			adminService.deleteAdmin(id);
 		}

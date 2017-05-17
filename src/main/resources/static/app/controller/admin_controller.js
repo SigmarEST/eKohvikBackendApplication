@@ -1,8 +1,8 @@
 'use strict';
 
-App.controller('AdminController', function($scope, AdminService) {
+App.controller('AdminController', function($scope, AdminService, AuthService) {
           var self = this;
-          self.admin={id:null, name:null, email:null, balance:null, username:null, password:null, roles:[] };
+          self.admin={id:null, name:null, email:null, username:null, password:null};
           self.admins=[];
               
           self.fetchAllAdmins = function(){
@@ -11,6 +11,7 @@ App.controller('AdminController', function($scope, AdminService) {
       					       function(d) {
       						        self.admins = d;
       						        console.log(d)
+      						        //console.log(AuthService.user)
       					       },
             					function(errResponse){
             						console.error('Error while fetching admins');
@@ -43,14 +44,16 @@ App.controller('AdminController', function($scope, AdminService) {
           self.fetchAllAdmins();
 
          self.deleteAdmin = function(id){
-              AdminService.deleteAdmin(id)
+        	 if(AuthService.user.id != id){
+        		 AdminService.deleteAdmin(id)
 		              .then(
 				              self.fetchAllAdmins, 
 				              function(errResponse){
 					               console.error('Error while deleting admin.');
 				              }	
                   );
-          };
+        	 };
+         }
 
           self.fetchAllAdmins();
 
@@ -85,7 +88,7 @@ App.controller('AdminController', function($scope, AdminService) {
 
           
           self.reset = function(){
-              self.admin={id:null, name:null, email:null, balance:null, username:null, password:null, roles:[] };
+              self.admin={id:null, name:null, email:null, username:null, password:null};
               $scope.myForm.$setPristine(); //reset Form
           };
 
