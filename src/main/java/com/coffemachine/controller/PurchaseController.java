@@ -40,6 +40,17 @@ public class PurchaseController {
 		return purchaseService.getPurchase(id).getUser().getUserId();
 	}
 	
+	@PreAuthorize("hasRole('ROLE_USER')")
+	@RequestMapping("/purchases/{id}")
+	public List<Purchase> getPurchaseByUser(@PathVariable Long id){
+		User user = userService.getUser(id);
+		if(user != null){
+			return purchaseService.getByUser(user);
+		}
+		return null;
+
+	}
+	
 	//for only station
 	@PreAuthorize("hasRole('ROLE_USER')")
 	@RequestMapping(method = RequestMethod.POST, value = "/")

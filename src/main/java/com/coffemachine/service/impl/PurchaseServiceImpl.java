@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.coffemachine.model.Purchase;
+import com.coffemachine.model.User;
 import com.coffemachine.repository.PurchaseRepository;
 import com.coffemachine.services.PurchaseService;
 
@@ -39,6 +40,12 @@ public class PurchaseServiceImpl implements PurchaseService {
 	public void deletePurchase(Purchase purchase) {
 		purchaseRepository.delete(purchase);
 		
+	}
+
+	@Override
+	public List<Purchase> getByUser(User user) {
+		
+		return purchaseRepository.findByUser(user);
 	}
 
 }
