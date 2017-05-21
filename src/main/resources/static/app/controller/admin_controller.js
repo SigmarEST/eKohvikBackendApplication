@@ -20,6 +20,8 @@ App.controller('AdminController', function($scope, AdminService, AuthService) {
           };
            
           self.createAdmin = function(admin){
+        	  admin.password = sha512(admin.password);
+        	  //console.log(admin.password)
               AdminService.createAdmin(admin)
 		              .then(
                           self.fetchAllAdmins, 
@@ -32,6 +34,7 @@ App.controller('AdminController', function($scope, AdminService, AuthService) {
           self.fetchAllAdmins();
 
          self.updateAdmin = function(admin){
+        	 admin.password = sha512(admin.password);
               AdminService.updateAdmin(admin)
 		              .then(
 				              self.fetchAllAdmins, 

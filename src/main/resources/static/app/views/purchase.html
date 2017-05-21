@@ -27,7 +27,7 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr ng-repeat="u in ctrl.purchases | filter:query | orderBy: 'dataTime'">
+						<tr ng-repeat="u in ctrl.purchases | filter:query | orderBy: 'dataTime':true">
 							<td style="text-align:left"><span ng-bind="u.purchaseId"></span></td>
 							<td style="text-align:left"><span ng-bind="u.user.email"></span></td>
 							<td style="text-align:left"><div ng-repeat="item in u.items">{{item.name}}</div></td>

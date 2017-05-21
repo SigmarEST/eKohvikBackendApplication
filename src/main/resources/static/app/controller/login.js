@@ -8,7 +8,7 @@ App
 			method : "POST",
 			params : {
 				username : $scope.username,
-				password : $scope.password
+				password : sha512($scope.password)
 			}
 		}).success(function(res) {
 			$scope.password = null;

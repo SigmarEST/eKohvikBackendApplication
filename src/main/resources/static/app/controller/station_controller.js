@@ -19,6 +19,7 @@ App.controller('StationController', function($scope, StationService) {
           };
            
           self.createStation = function(station){
+        	  station.password = sha512(station.password);
               StationService.createStation(station)
 		              .then(
                           self.fetchAllStations, 
@@ -31,6 +32,7 @@ App.controller('StationController', function($scope, StationService) {
           self.fetchAllStations();
 
          self.updateStation = function(station){
+        	 station.password = sha512(station.password);
               StationService.updateStation(station)
 		              .then(
 				              self.fetchAllStations, 
