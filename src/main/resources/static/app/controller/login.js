@@ -1,14 +1,14 @@
 App
-.controller('LoginController', function($http, $scope, $state, AuthService, $rootScope) {
+.controller('LoginController', function($http, $scope, $state, AuthService, $rootScope, URL) {
 	// method for login
 	$scope.login = function() {
 		// requesting the token by usename and passoword
 		$http({
-			url : 'http://localhost:8081/api/admin/authenticate',
+			url : URL+'/admin/authenticate',
 			method : "POST",
 			params : {
 				username : $scope.username,
-				password : sha512($scope.password)
+				password : $scope.password!=undefined?sha512($scope.password):""
 			}
 		}).success(function(res) {
 			$scope.password = null;
@@ -20,7 +20,7 @@ App
 
 				// setting the user in AuthService
 				AuthService.user = res.user;
-				console.log($rootScope)
+				//console.log($rootScope)
 				$rootScope.$broadcast('LoginSuccessful');
 				// going to the home page
 				$state.go('home');

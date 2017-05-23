@@ -1,8 +1,8 @@
 'use strict';
 
-App.factory('AdminService', function($http, $q){
+App.factory('AdminService', function($http, $q, URL){
 
-	var backendUrl = 'http://localhost:8081/api/admin/';
+	var backendUrl = URL+'/admin/';
 
 	return {
 		

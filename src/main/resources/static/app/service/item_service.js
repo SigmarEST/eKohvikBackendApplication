@@ -1,8 +1,8 @@
 'use strict';
 
-App.factory('ItemService', function($http, $q){
+App.factory('ItemService', function($http, $q, URL){
 
-	var backendUrl = 'http://localhost:8081/api/item/';
+	var backendUrl = URL+'/item/';
 
 	return {
 		

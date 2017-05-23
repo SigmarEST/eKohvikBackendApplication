@@ -2,6 +2,10 @@
 
 var App = angular.module('myApp', [ 'ui.router' ])
 
+//This is the url this app connects 
+	
+.value("URL", "http://localhost:8081/api")
+
 // the following method will run at the time of initializing the module. That
 // means it will run only one time.
 .run(function(AuthService, $rootScope, $state) {
@@ -36,4 +40,6 @@ var App = angular.module('myApp', [ 'ui.router' ])
 			}
 		}
 	});
+	
+	
 });

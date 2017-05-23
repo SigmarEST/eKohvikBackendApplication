@@ -1,8 +1,8 @@
 'use strict';
 
-App.factory('CardService', function($http, $q, UserService){
+App.factory('CardService', function($http, $q, UserService, URL){
 	
-	var backendUrl = 'http://localhost:8081/api/card/';
+	var backendUrl = URL+'/card/';
 	
 	return {
 		

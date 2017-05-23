@@ -12,7 +12,7 @@ App
 										.fetchAllPurchases()
 										.then(
 												function(d) {
-													console.log(d)
+													//console.log(d)
 													self.purchases = d;
 												},
 												function(errResponse) {
@@ -59,11 +59,11 @@ App
 
 					          self.submit = function() {
 					              if(self.purchase.purchaseId==null){
-					                  console.log('Saving New Purchase', self.purchase);    
+					                  //console.log('Saving New Purchase', self.purchase);    
 					                  self.createPurchase(self.purchase);
 					              }else{
 					                  self.updatePurchase(self.purchase);
-					                  console.log('Purchase updated with id ', self.purchase.purchaseId);
+					                  //console.log('Purchase updated with id ', self.purchase.purchaseId);
 					              }
 					              self.reset();
 					          };
@@ -71,7 +71,7 @@ App
 					          self.fetchAllPurchases();
 					          
 					          self.edit = function(purchaseId){
-					              console.log('id to be edited', purchaseId);
+					              //console.log('id to be edited', purchaseId);
 					              for(var i = 0; i < self.purchases.length; i++){
 					                  if(self.purchases[i].purchaseId == purchaseId) {
 					                     self.purchase = angular.copy(self.purchases[i]);
@@ -83,7 +83,7 @@ App
 					          self.fetchAllPurchases();
 					          
 					          self.remove = function(purchaseId){
-					              console.log('id to be deleted', purchaseId);
+					              //console.log('id to be deleted', purchaseId);
 					              if(self.purchase.purchaseId === purchaseId) {//clean form if the user to be deleted is shown there.
 					                 self.reset();
 					              }

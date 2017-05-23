@@ -54,7 +54,7 @@ public class Admin implements Serializable, UserDetails {
 	
 	
 
-	public Admin(String name, String email, String username, String password, List<String> roles) {
+	public Admin(String name, String email, String username, String password, List<String> roles, Long id) {
 		super();
 		this.id = id;
 		this.username = username;

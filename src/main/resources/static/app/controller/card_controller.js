@@ -13,7 +13,7 @@ App
 										.then(
 												function(d) {
 													self.cards = d;
-													console.log(d)
+													//console.log(d)
 												},
 												function(errResponse) {
 													console
@@ -75,19 +75,19 @@ App
 
 							self.submit = function() {
 								if (self.card.cardId == null) {
-									console.log('Saving New Card', self.card);
+									//console.log('Saving New Card', self.card);
 									self.createCard(self.card);
 								} else {
 									self
 											.updateCard(self.card);
-									console.log('card updated with id ',
-											self.card.cardId);
+									//console.log('card updated with id ',
+									//		self.card.cardId);
 								}
 								self.reset();
 							};
 
 							self.edit = function(cardId) {
-								console.log('id to be edited', cardId);
+								//console.log('id to be edited', cardId);
 								for (var i = 0; i < self.cards.length; i++) {
 									if (self.cards[i].cardId == cardId) {
 										self.card = angular.copy(self.cards[i]);
@@ -97,7 +97,7 @@ App
 							};
 
 							self.remove = function(cardId) {
-								console.log('id to be deleted', cardId);
+								//console.log('id to be deleted', cardId);
 								if (self.card.cardId === cardId) {// clean
 									// form if
 									// the item

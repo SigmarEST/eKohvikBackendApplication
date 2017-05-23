@@ -1,8 +1,8 @@
 'use strict';
 
-App.factory('UserService', function($http, $q){
+App.factory('UserService', function($http, $q, URL){
 
-	var backendUrl = 'http://localhost:8081/api/user/';
+	var backendUrl = URL+'/user/';
 
 	return {
 		

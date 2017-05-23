@@ -55,17 +55,17 @@ App.controller('ItemController', function($scope, ItemService) {
 
           self.submit = function() {
               if(self.item.itemId==null){
-                  console.log('Saving New Item', self.item);    
+                  //console.log('Saving New Item', self.item);    
                   self.createItem(self.item);
               }else{
                   self.updateItem(self.item);
-                  console.log('Item updated with id ', self.item.itemId);
+                  //console.log('Item updated with id ', self.item.itemId);
               }
               self.reset();
           };
               
           self.edit = function(itemId){
-              console.log('id to be edited', itemId);
+              //console.log('id to be edited', itemId);
               for(var i = 0; i < self.items.length; i++){
                   if(self.items[i].itemId == itemId) {
                      self.item = angular.copy(self.items[i]);
@@ -75,7 +75,7 @@ App.controller('ItemController', function($scope, ItemService) {
           };
               
           self.remove = function(itemId){
-              console.log('id to be deleted', itemId);
+              //console.log('id to be deleted', itemId);
               if(self.item.itemId === itemId) {//clean form if the item to be deleted is shown there.
                  self.reset();
               }

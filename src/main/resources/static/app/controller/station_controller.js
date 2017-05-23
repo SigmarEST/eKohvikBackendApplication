@@ -10,7 +10,7 @@ App.controller('StationController', function($scope, StationService) {
                   .then(
       					       function(d) {
       						        self.stations = d;
-      						        console.log(d);
+      						        //console.log(d);
       					       },
             					function(errResponse){
             						console.error('Error while fetching Stations');
@@ -58,17 +58,17 @@ App.controller('StationController', function($scope, StationService) {
 
           self.submit = function() {
               if(self.station.id==null){
-                  console.log('Saving New Station', self.station);    
+                  //console.log('Saving New Station', self.station);    
                   self.createStation(self.station);
               }else{
                   self.updateStation(self.station);
-                  console.log('Station updated with id ', self.station.id);
+                  //console.log('Station updated with id ', self.station.id);
               }
               self.reset();
           };
               
           self.edit = function(id){
-              console.log('id to be edited', id);
+              //console.log('id to be edited', id);
               for(var i = 0; i < self.stations.length; i++){
                   if(self.stations[i].id == id) {
                      self.station = angular.copy(self.stations[i]);
@@ -78,7 +78,7 @@ App.controller('StationController', function($scope, StationService) {
           };
               
           self.remove = function(id){
-              console.log('id to be deleted', id);
+              //console.log('id to be deleted', id);
               if(self.station.id === id) {//clean form if the item to be deleted is shown there.
                  self.reset();
               }

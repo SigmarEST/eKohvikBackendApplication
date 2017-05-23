@@ -10,7 +10,7 @@ App.controller('UserController', function($scope, UserService) {
                   .then(
       					       function(d) {
       						        self.users = d;
-      						        console.log(d)
+      						        //console.log(d)
       					       },
             					function(errResponse){
             						console.error('Error while fetching users');
@@ -56,17 +56,17 @@ App.controller('UserController', function($scope, UserService) {
 
           self.submit = function() {
               if(self.user.userId==null){
-                  console.log('Saving New User', self.user);    
+                  //console.log('Saving New User', self.user);    
                   self.createUser(self.user);
               }else{
                   self.updateUser(self.user);
-                  console.log('User updated with id ', self.user.userId);
+                  //console.log('User updated with id ', self.user.userId);
               }
               self.reset();
           };
               
           self.edit = function(userId){
-              console.log('id to be edited', userId);
+              //console.log('id to be edited', userId);
               for(var i = 0; i < self.users.length; i++){
                   if(self.users[i].userId == userId) {
                      self.user = angular.copy(self.users[i]);
@@ -76,7 +76,7 @@ App.controller('UserController', function($scope, UserService) {
           };
               
           self.remove = function(userId){
-              console.log('id to be deleted', userId);
+              //console.log('id to be deleted', userId);
               if(self.user.userId === userId) {//clean form if the user to be deleted is shown there.
                  self.reset();
               }

@@ -10,7 +10,7 @@ App.controller('AdminController', function($scope, AdminService, AuthService) {
                   .then(
       					       function(d) {
       						        self.admins = d;
-      						        console.log(d)
+      						       // console.log(d)
       						        //console.log(AuthService.user)
       					       },
             					function(errResponse){
@@ -62,17 +62,17 @@ App.controller('AdminController', function($scope, AdminService, AuthService) {
 
           self.submit = function() {
               if(self.admin.id==null){
-                  console.log('Saving New Admin', self.admin);    
+                  //console.log('Saving New Admin', self.admin);    
                   self.createAdmin(self.admin);
               }else{
                   self.updateAdmin(self.admin);
-                  console.log('User updated with id ', self.admin.id);
+                  //console.log('User updated with id ', self.admin.id);
               }
               self.reset();
           };
               
           self.edit = function(id){
-              console.log('id to be edited', id);
+             // console.log('id to be edited', id);
               for(var i = 0; i < self.admins.length; i++){
                   if(self.admins[i].id == id) {
                      self.admin = angular.copy(self.admins[i]);
@@ -82,7 +82,7 @@ App.controller('AdminController', function($scope, AdminService, AuthService) {
           };
               
           self.remove = function(id){
-              console.log('id to be deleted', id);
+              //console.log('id to be deleted', id);
               if(self.admin.id === id) {//clean form if the user to be deleted is shown there.
                  self.reset();
               }
