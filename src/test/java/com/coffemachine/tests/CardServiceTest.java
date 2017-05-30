@@ -67,8 +67,15 @@ public class CardServiceTest extends AbstractTest {
 	
 	@Test
 	public void testDeleteCard(){
-		cardService.deleteCard(cardService.getCardByUID("2b753a77e1740fe24365d9ed50582fb403af4c6255813c68f62a25631878f2cecafea0b04355f3a1c5261d54098f1cb592b6cfa096c10600948b0d4a51519380").getCardId());
-		Assert.assertNull(cardService.getCardByUID("2b753a77e1740fe24365d9ed50582fb403af4c6255813c68f62a25631878f2cecafea0b04355f3a1c5261d54098f1cb592b6cfa096c10600948b0d4a51519380"));
+		Card card = new Card();
+		card.setCreatedDate(new Date());
+		card.setName("testCard");
+		card.setUser(userService.getByEmail("john@gmail.com"));
+		card.setUid("222222");
+		cardService.addCard(card);
+		
+		cardService.deleteCard(cardService.getCardByUID("222222").getCardId());
+		Assert.assertNull(cardService.getCardByUID("222222"));
 	}
 	
 }
