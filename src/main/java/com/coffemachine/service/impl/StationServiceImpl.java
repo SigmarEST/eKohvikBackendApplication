@@ -15,9 +15,6 @@ public class StationServiceImpl implements StationService {
 	@Autowired
 	StationRepository stationRepository;
 	
-   // @Autowired
-   // private BCryptPasswordEncoder bCryptPasswordEncoder;
-	
 	public List<Station> getAllStations(){
 		return (List<Station>) stationRepository.findAll();
 	}
@@ -29,9 +26,7 @@ public class StationServiceImpl implements StationService {
 	
 	
 	public void addStation(Station station){
-			//station.setPassword(bCryptPasswordEncoder.encode(station.getPassword()));
-	       // Role userRole = roleRepository.findByRole("ADMIN");
-	       // station.setRoles(new HashSet<Role>(Arrays.asList(userRole)));
+		
 	        stationRepository.save(station);
 	}
 	
@@ -40,9 +35,7 @@ public class StationServiceImpl implements StationService {
 	}
 	
 	public void updateStation(Station station){
-		//station.setPassword(bCryptPasswordEncoder.encode(station.getPassword()));
-       // Role userRole = roleRepository.findByRole("ADMIN");
-       // station.setRoles(new HashSet<Role>(Arrays.asList(userRole)));
+		
         stationRepository.save(station);
 	}
 

@@ -31,7 +31,23 @@
 						<label class="col-md-2 control-lable" for="file">Password</label>
 						<div class="col-md-7">
 							<input type="text" ng-model="ctrl.station.password" name="password"
-								placeholder="Enter password" />
+								placeholder="Enter password" required />
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="form-group col-md-6">
+						<label class="col-md-2 control-lable" for="file">Items</label>
+						<div class="col-md-7">
+							<div ng-repeat="item in ctrl.station.items" ng-click="ctrl.deleteItem()">{{item.name}}</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="form-group col-md-6">
+						<label class="col-md-2 control-lable" for="file">All items</label>
+						<div class="col-md-7">
+							<div ng-repeat="item in ctrl.allItems" ng-click="ctrl.addItem()">{{item.name}}</div>
 						</div>
 					</div>
 				</div>
@@ -59,7 +75,8 @@
 							<th>Address</th>
 							<th>Username</th>
 							<th>Password</th>
-							<th width="20%"></th>
+							<th>Items</th>
+							<th width="15%"></th>
 						</tr>
 					</thead>
 					<tbody>
@@ -68,6 +85,7 @@
 							<td style="text-align:left"><span ng-bind="u.address"></span></td>
 							<td style="text-align:left"><span ng-bind="u.username"></span>
 							<td style="text-align:left"><span ng-bind="u.password"></span>
+							<td style="text-align:left"><div ng-repeat="item in u.items">{{item.name}}</div></td>
 							<td>
 								<button type="button" ng-click="ctrl.edit(u.id)"
 									class="btn btn-success custom-width">Edit</button>

@@ -1,9 +1,38 @@
 'use strict';
 
-App.controller('StationController', function($scope, StationService) {
+App.controller('StationController', function($scope, StationService, ItemService) {
           var self = this;
-          self.station={id:null, address:'', username:null, password:null };
+          self.station={id:null, address:'', username:null, password:null, items:[]};
           self.stations=[];
+          self.allItems = [];
+          
+          self.deleteItem = function(index){
+        	  
+        	  self.station.items.splice(index, 1);
+        	  
+          }
+          
+          self.addItem = function(item){
+        	  console.log(self.station)
+        	  self.station.items.push(item);
+          }
+        	  
+          self.fetchAllItems = function(){
+        	  console.log("getting items")
+        	  ItemService.fetchAllItems()
+        	  .then(
+        			  function(d){
+        				  self.allItems = d;
+        				  console.log(d)
+        			  },
+        			  
+        			  function(errResponse){
+        				  console.error('Error while fetching items');
+        			  }
+        	  )
+          }
+          
+          self.fetchAllItems();
               
           self.fetchAllStations = function(){
               StationService.fetchAllStations()
@@ -17,6 +46,8 @@ App.controller('StationController', function($scope, StationService) {
             					}
       			       );
           };
+          
+          self.fetchAllItems();
            
           self.createStation = function(station){
         	  station.password = sha512(station.password);
@@ -30,6 +61,7 @@ App.controller('StationController', function($scope, StationService) {
           };
           
           self.fetchAllStations();
+          self.fetchAllItems();
 
          self.updateStation = function(station){
         	 station.password = sha512(station.password);
@@ -43,6 +75,7 @@ App.controller('StationController', function($scope, StationService) {
           };
           
           self.fetchAllStations();
+          self.fetchAllItems();
 
          self.deleteStation = function(id){
               StationService.deleteStation(id)
@@ -55,6 +88,7 @@ App.controller('StationController', function($scope, StationService) {
           };
 
           self.fetchAllStations();
+          self.fetchAllItems();
 
           self.submit = function() {
               if(self.station.id==null){
@@ -87,7 +121,7 @@ App.controller('StationController', function($scope, StationService) {
 
           
           self.reset = function(){
-              self.station={id:null, address:'', username:null, password:null};
+              self.station={id:null, address:'', username:null, password:null, items:[]};
               $scope.myForm.$setPristine(); //reset Form
           };
 
