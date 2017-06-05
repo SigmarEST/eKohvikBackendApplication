@@ -35,19 +35,28 @@
 						</div>
 					</div>
 				</div>
+				<!--  
 				<div class="row">
 					<div class="form-group col-md-6">
 						<label class="col-md-2 control-lable" for="file">Items</label>
 						<div class="col-md-7">
-							<div ng-repeat="item in ctrl.station.items" ng-click="ctrl.deleteItem()">{{item.name}}</div>
+							<input type="text">{{ctrl.station.items}}</input>
 						</div>
 					</div>
 				</div>
+				-->
+				
 				<div class="row">
-					<div class="form-group col-md-6">
+					<div class="form-group col-md-12">
 						<label class="col-md-2 control-lable" for="file">All items</label>
-						<div class="col-md-7">
-							<div ng-repeat="item in ctrl.allItems" ng-click="ctrl.addItem()">{{item.name}}</div>
+						<div class="col-md-7"> 
+							<span ng-repeat="item in ctrl.allItems">
+							<label class="checkbox" for="{{item.itemId}}">
+							  <input type="checkbox" ng-model="ctrl.allItems[item.itemId]" name="group" id="{{item.itemId}}"/>
+							  {{item.name}}
+							</label>
+							</span>
+							<h1 ng-bind="ctrl.allItems"></h1>
 						</div>
 					</div>
 				</div>

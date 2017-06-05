@@ -11,11 +11,7 @@ App.controller('StationController', function($scope, StationService, ItemService
         	  self.station.items.splice(index, 1);
         	  
           }
-          
-          self.addItem = function(item){
-        	  console.log(self.station)
-        	  self.station.items.push(item);
-          }
+          console.log($scope.selection)
         	  
           self.fetchAllItems = function(){
         	  console.log("getting items")
@@ -92,7 +88,10 @@ App.controller('StationController', function($scope, StationService, ItemService
 
           self.submit = function() {
               if(self.station.id==null){
-                  //console.log('Saving New Station', self.station);    
+                  //console.log('Saving New Station', self.station);
+            	  for(var i = 0; i<self.station.items.length; i++){
+            		  
+            	  }
                   self.createStation(self.station);
               }else{
                   self.updateStation(self.station);
