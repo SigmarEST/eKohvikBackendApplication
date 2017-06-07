@@ -69,6 +69,7 @@ public class StationController {
 			List<String> roles = new ArrayList<>();
 			roles.add(role);
 			station.setRoles(roles);
+			System.out.println(station);
 			stationService.addStation(station);
 			return new ResponseEntity<Void>(HttpStatus.CREATED);
 		}
@@ -87,6 +88,7 @@ public class StationController {
 		}
 
 		currentStation.setAddress(station.getAddress());
+		currentStation.setItems(station.getItems());
 
 		stationService.updateStation(currentStation);
 		return new ResponseEntity<Station>(currentStation, HttpStatus.OK);

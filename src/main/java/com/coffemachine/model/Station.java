@@ -58,12 +58,13 @@ public class Station implements Serializable, UserDetails{
 		super();
 	}
 
-	public Station(String address,String username, String password, List<String> roles) {
+	public Station(String address,String username, String password, List<String> roles, List<Item> items) {
 		super();
 		this.address = address;
 		this.username = username;
 		this.password = password;
 		this.roles = roles;
+		this.items = items;
 	}
 
 	public Long getId() {
@@ -88,6 +89,16 @@ public class Station implements Serializable, UserDetails{
 
 	public void setRoles(List<String> roles) {
 		this.roles = roles;
+	}
+	
+	
+
+	public List<Item> getItems() {
+		return items;
+	}
+
+	public void setItems(List<Item> items) {
+		this.items = items;
 	}
 
 	public void setUsername(String username) {

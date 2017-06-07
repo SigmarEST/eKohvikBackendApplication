@@ -5,13 +5,25 @@ App.controller('StationController', function($scope, StationService, ItemService
           self.station={id:null, address:'', username:null, password:null, items:[]};
           self.stations=[];
           self.allItems = [];
+          self.selectedItems=[];
           
-          self.deleteItem = function(index){
-        	  
-        	  self.station.items.splice(index, 1);
-        	  
+          $scope.toggleSelection = function toggleSelection(item){
+        	  var idx = self.selectedItems.indexOf(item);
+
+        	    // Is currently selected
+        	    if (idx > -1) {
+        	      self.selectedItems.splice(idx, 1);
+        	    }
+
+        	    // Is newly selected
+        	    else {
+        	      self.selectedItems.push(item);
+        	    }
+        	    
+        	    console.log(self.selectedItems)
           }
-          console.log($scope.selection)
+          
+          
         	  
           self.fetchAllItems = function(){
         	  console.log("getting items")
@@ -47,6 +59,8 @@ App.controller('StationController', function($scope, StationService, ItemService
            
           self.createStation = function(station){
         	  station.password = sha512(station.password);
+        	  station.items = self.selectedItems;
+        	  console.log(station)
               StationService.createStation(station)
 		              .then(
                           self.fetchAllStations, 
@@ -61,6 +75,8 @@ App.controller('StationController', function($scope, StationService, ItemService
 
          self.updateStation = function(station){
         	 station.password = sha512(station.password);
+        	 station.items = self.selectedItems;
+        	 console.log(station)
               StationService.updateStation(station)
 		              .then(
 				              self.fetchAllStations, 
