@@ -9,6 +9,8 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletResponse;
 
+import com.coffemachine.model.ItemFeedback;
+import com.coffemachine.services.SampleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -33,6 +35,9 @@ public class StationController {
 
 	@Autowired
 	StationService stationService;
+
+	@Autowired
+	SampleService sampleService;
 	
 	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@RequestMapping("/")
@@ -125,7 +130,11 @@ public class StationController {
 			tokenMap.put("token", null);
 			return new ResponseEntity<Map<String, Object>>(tokenMap, HttpStatus.UNAUTHORIZED);
 		}
-
 	}
 
+	@PreAuthorize("hasRole('ROLE_USER')")
+	@RequestMapping(value = "/feedback", method = RequestMethod.POST)
+	public void processItemFeedback(@RequestBody ItemFeedback itemFeedback) {
+		sampleService.addSample(itemFeedback);
+	}
 }

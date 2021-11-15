@@ -135,24 +135,4 @@ public class UserController {
 	public void userUpdate(@RequestBody User user) {
 		userService.updateUser(user);
 	}
-
-	/*
-	 * @RequestMapping(value = "/users/update/{id}", method = RequestMethod.PUT)
-	 * public ResponseEntity<User> updateUser(@PathVariable("id") Long
-	 * id, @RequestBody User user) { System.out.println("Updating user " + id);
-	 * 
-	 * User currentUser = userService.getUser(id);
-	 * 
-	 * if (currentUser==null) { System.out.println("User with id " + id +
-	 * " not found"); return new ResponseEntity<User>(HttpStatus.NOT_FOUND); }
-	 * 
-	 * currentUser.setName(user.getName());
-	 * currentUser.setEmail(user.getEmail());
-	 * currentUser.setCards(user.getCards());
-	 * currentUser.setBalance(user.getBalance());
-	 * 
-	 * userService.updateUser(currentUser); return new
-	 * ResponseEntity<User>(currentUser, HttpStatus.OK); }
-	 */
-
 }
