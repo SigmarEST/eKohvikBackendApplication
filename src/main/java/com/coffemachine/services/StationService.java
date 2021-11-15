@@ -7,11 +7,9 @@ import com.coffemachine.model.Station;
 public interface StationService {
 	
 	public List<Station> getAllStations();
-	
-	
+
 	public Station getStation(Long id);
-	
-	
+
 	public void addStation(Station station);
 	
 	public void deleteStation(Long id);
@@ -21,5 +19,4 @@ public interface StationService {
 	public boolean isStationExist(Station station);
 	
 	public Station findOneByUsername(String username);
-
 }

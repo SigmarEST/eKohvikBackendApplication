@@ -18,7 +18,7 @@ import javax.validation.constraints.NotNull;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
-@Table(name = "user")
+@Table(name = "app_user")
 public class User implements Serializable{
 	
 	/**

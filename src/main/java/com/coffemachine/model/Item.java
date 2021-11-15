@@ -11,61 +11,73 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "item")
-public class Item implements Serializable{
-	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -4308379451088353594L;
+public class Item implements Serializable {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long itemId;
-	
-	@NotNull
-	private String name;
-	
-	@NotNull
-	private double price;
-	
-	@NotNull
-	private boolean available;
-	
+    private static final long serialVersionUID = -4308379451088353594L;
 
-	public Item(){
-		super();
-	}
-	
-	public Item(String name, double price, boolean available) {
-		super();
-		this.name = name;
-		this.price = price;
-		this.available = available;
-	}
-	public Long getItemId() {
-		return itemId;
-	}
-	public void setItemId(Long itemId) {
-		this.itemId = itemId;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public double getPrice() {
-		return price;
-	}
-	public void setPrice(double price) {
-		this.price = price;
-	}
-	public boolean isAvailable() {
-		return available;
-	}
-	public void setAvailable(boolean available) {
-		this.available = available;
-	}
-	
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long itemId;
 
+    @NotNull
+    private String name;
+
+    @NotNull
+    private double price;
+
+    @NotNull
+    private boolean available;
+
+    private Boolean isFromCoffeeMachine;
+
+    public Item() {
+        super();
+    }
+
+    public Item(String name, double price, boolean available) {
+        super();
+        this.name = name;
+        this.price = price;
+        this.available = available;
+    }
+
+    public Long getItemId() {
+        return itemId;
+    }
+
+    public void setItemId(Long itemId) {
+        this.itemId = itemId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public boolean isAvailable() {
+        return available;
+    }
+
+    public void setAvailable(boolean available) {
+        this.available = available;
+    }
+
+    public boolean getIsFromCoffeeMachine() {
+        return isFromCoffeeMachine != null && isFromCoffeeMachine;
+    }
+
+    public void setIsFromCoffeeMachine(boolean fromCoffeeMachine) {
+        isFromCoffeeMachine = fromCoffeeMachine;
+    }
 }

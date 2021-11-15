@@ -43,10 +43,10 @@ public class ItemServiceTest extends AbstractTest {
 		item.setAvailable(true);
 		item.setName("chocolate");
 		item.setPrice(0.40);
+		item.setIsFromCoffeeMachine(false);
 		itemService.addItem(item);
 		
 		Assert.assertNotNull(itemService.getItem(10L));
-		
 	}
 	
 	@Test
@@ -56,6 +56,7 @@ public class ItemServiceTest extends AbstractTest {
 		item.setAvailable(true);
 		item.setName("chocolate");
 		item.setPrice(0.40);
+		item.setIsFromCoffeeMachine(false);
 		itemService.addItem(item);
 		
 		itemService.deleteItem(5L);

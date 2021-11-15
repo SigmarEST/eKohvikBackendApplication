@@ -91,6 +91,7 @@ public class ItemController {
 	        currentItem.setName(item.getName());
 	        currentItem.setPrice(item.getPrice());
 	        currentItem.setAvailable(item.isAvailable());
+	        currentItem.setIsFromCoffeeMachine(item.getIsFromCoffeeMachine());
 	         
 	        itemService.updateItem(currentItem);
 	        return new ResponseEntity<Item>(currentItem, HttpStatus.OK);
