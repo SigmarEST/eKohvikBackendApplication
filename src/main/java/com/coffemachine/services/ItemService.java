@@ -17,4 +17,6 @@ public interface ItemService {
 	public void updateItem(Item item);
 	
 	public boolean isItemExist(Item item);
+
+	public List<Item> getAllCoffeeMachineItems();
 }
